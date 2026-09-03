@@ -4,16 +4,25 @@ import shevgaImage from '../assets/shevga_drumsticks.jpg';
 const FarmerHero = ({ language }) => {
   const isMr = language === 'mr';
 
+  const scrollToDetails = () => {
+    const el = document.getElementById('farmer-requirements') || document.getElementById('profit-ledger');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/farmer-details';
+    }
+  };
+
   return (
-    <div className="relative w-full min-h-[500px] md:min-h-[65vh] flex items-center bg-white border-b border-slate-200 overflow-hidden">
+    <div className="relative w-full min-h-[520px] md:min-h-[70vh] flex items-center bg-white border-b border-slate-200 overflow-hidden">
       {/* Right Side Image */}
       <div className="absolute top-0 right-0 w-full md:w-[65%] h-full z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10 hidden md:block"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent z-10 md:hidden"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent z-10 hidden md:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent z-10 md:hidden"></div>
         <img 
           src={shevgaImage} 
           alt="Shevga Produce Lot" 
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-700"
         />
       </div>
 
@@ -33,7 +42,7 @@ const FarmerHero = ({ language }) => {
             )}
           </h1>
 
-          <div className="bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-2xl shadow-md space-y-3 font-body text-sm text-slate-800">
+          <div className="bg-white/95 backdrop-blur-md animated-border-box border border-slate-200 p-5 rounded-2xl shadow-lg space-y-4 font-body text-sm text-slate-800">
             <p className="font-bold text-emerald-700 text-base border-b border-slate-100 pb-2 flex items-center justify-between">
               <span>{isMr ? 'शेवगा (बियाणे) मुख्य वैशिष्ट्ये' : 'OIDC Seed Specifications'}</span>
               <span className="text-xs font-mono bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">OIDC-3</span>
@@ -52,6 +61,17 @@ const FarmerHero = ({ language }) => {
                 <span>{isMr ? 'कंपनीकडून ७ वर्षांचा खरेदी हमीभाव करार.' : '7-Year legal buyback price guarantee from Sonarsiddha.'}</span>
               </li>
             </ul>
+
+            {/* Show More Action Button */}
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+              <button
+                onClick={scrollToDetails}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer group"
+              >
+                <span>{isMr ? 'अधिक माहिती व तपशील पहा' : 'Show More & Explore Details'}</span>
+                <span className="group-hover:translate-x-1 transition-transform">↓</span>
+              </button>
+            </div>
           </div>
 
         </div>

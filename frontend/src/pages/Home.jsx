@@ -9,16 +9,27 @@ import heroImageMr from '../assets/hero_mr.jpg';
 import heroImageEn from '../assets/hero_en.jpg';
 import { API_BASE } from '../config';
 
+const DEFAULT_RATES = [
+  { id: '1', cropName: { en: 'Drumstick (Shevga)', mr: 'शेवगा' }, ratePerKg: '45 - 65', marketLocation: 'Solapur Central Mandi' },
+  { id: '2', cropName: { en: 'Green Chilli (Hirvi Mirchi)', mr: 'हिरवी मिरची' }, ratePerKg: '38 - 50', marketLocation: 'Sangli Terminal' },
+  { id: '3', cropName: { en: 'Pomegranate (Dalimb)', mr: 'केसर डाळिंब' }, ratePerKg: '110 - 145', marketLocation: 'Nashik Procurement Hub' },
+  { id: '4', cropName: { en: 'Onion (Kanda)', mr: 'लाल कांदा' }, ratePerKg: '24 - 32', marketLocation: 'Pune Cargo Logistics' },
+  { id: '5', cropName: { en: 'Papaya (Tayvan 786)', mr: 'तैवान पपई' }, ratePerKg: '18 - 25', marketLocation: 'Solapur Central Mandi' },
+  { id: '6', cropName: { en: 'Ginger (Aale)', mr: 'ताजे आले' }, ratePerKg: '75 - 90', marketLocation: 'Sangli Terminal' },
+];
+
 const Home = ({ language }) => {
   const isMr = language === 'mr';
-  const [rates, setRates] = useState([]);
+  const [rates, setRates] = useState(DEFAULT_RATES);
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetch(`${API_BASE}/dailyRates`)
       .then(res => res.ok ? res.json() : [])
       .then(data => {
-        if (Array.isArray(data)) setRates(data);
+        if (Array.isArray(data) && data.length > 0) {
+          setRates(data);
+        }
       })
       .catch(err => console.error("Error fetching rates ticker:", err));
   }, []);
