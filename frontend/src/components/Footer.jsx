@@ -18,11 +18,13 @@ const Footer = ({ language }) => {
           {/* Column 1: Brand & Mission (4 Cols) */}
           <div className="lg:col-span-4 space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Sonarsiddha Logo" className="w-10 h-10 rounded-full border-2 border-[#B8862E] object-cover" />
+              <img src={logo} alt="Sonarsiddhi Logo" className="w-10 h-10 rounded-full border-2 border-[#B8862E] object-cover" />
               <div>
-                <h3 className="font-display font-bold text-xl tracking-tight text-[#F3EEE1]">SONARSIDDHA</h3>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#B8862E] block -mt-1">
-                  Trading House & Mandi Portal
+                <h3 className="font-display font-bold text-xl tracking-tight text-[#F3EEE1]">
+                  {isMr ? 'सोनारसिद्धी' : 'SONARSIDDHI'}
+                </h3>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#B8862E] block -mt-0.5">
+                  {isMr ? 'ट्रेडिंग हाऊस आणि मंडी' : 'Trading House & Mandi Portal'}
                 </span>
               </div>
             </div>

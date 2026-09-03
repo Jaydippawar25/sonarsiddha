@@ -6,6 +6,7 @@ import logo from './assets/logo.jpeg'
 // Public Pages
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Farmer from './pages/Farmer'
@@ -94,11 +95,12 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Toaster position="top-right" />
       <Routes>
         {/* PUBLIC ROUTES */}
         <Route path="/" element={
-          <div className="min-h-screen bg-[#F3EEE1] flex flex-col font-body">
+          <div className="min-h-screen bg-[#F3EEE1] bg-farm-pattern flex flex-col font-body">
             <Navbar language={language} setLanguage={setLanguage} />
             <main className="flex-grow">
               <Home language={language} />
@@ -108,7 +110,7 @@ function App() {
         } />
         
         <Route path="/about" element={
-          <div className="min-h-screen bg-[#F3EEE1] flex flex-col font-body">
+          <div className="min-h-screen bg-[#F3EEE1] bg-farm-pattern flex flex-col font-body">
             <Navbar language={language} setLanguage={setLanguage} />
             <main className="flex-grow">
               <About language={language} />
@@ -118,7 +120,7 @@ function App() {
         } />
         
         <Route path="/farmer" element={
-          <div className="min-h-screen bg-[#F3EEE1] flex flex-col font-body">
+          <div className="min-h-screen bg-[#F3EEE1] bg-farm-pattern flex flex-col font-body">
             <Navbar language={language} setLanguage={setLanguage} />
             <main className="flex-grow">
               <Farmer language={language} />
@@ -128,7 +130,7 @@ function App() {
         } />
         
         <Route path="/gallery" element={
-          <div className="min-h-screen bg-[#F3EEE1] flex flex-col font-body">
+          <div className="min-h-screen bg-[#F3EEE1] bg-farm-pattern flex flex-col font-body">
             <Navbar language={language} setLanguage={setLanguage} />
             <main className="flex-grow">
               <PhotoGallery language={language} />
@@ -138,7 +140,7 @@ function App() {
         } />
         
         <Route path="/farmer-details" element={
-          <div className="min-h-screen bg-[#F3EEE1] flex flex-col font-body">
+          <div className="min-h-screen bg-[#F3EEE1] bg-farm-pattern flex flex-col font-body">
             <Navbar language={language} setLanguage={setLanguage} />
             <main className="flex-grow">
               <FarmerDetails language={language} />

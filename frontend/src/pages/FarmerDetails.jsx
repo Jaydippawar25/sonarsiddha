@@ -60,45 +60,54 @@ const FarmerDetails = ({ language }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left Side: Real Produce Crop Specification Image */}
-          <div className="lg:col-span-5 border border-[#1C2A1E]/20 bg-white p-3 rounded-xs">
-            <img 
-              src={plantImage} 
-              alt="Sonarsiddha Contract Crop" 
-              className="w-full h-[400px] object-cover rounded-xs"
-            />
-            <div className="mt-3 pt-3 border-t border-hairline flex items-center justify-between font-mono text-xs text-[#1C2A1E]/70">
-              <span>{isMr ? 'शेतकरी करार संच' : 'Contract Specification'}</span>
-              <span className="text-[#B8862E]">VALIDATED</span>
+          {/* Left Side: Real Produce Crop Specification Image with Curved Border & Shadow */}
+          <div className="lg:col-span-5 relative">
+            <div className="absolute -inset-3 bg-gradient-to-tr from-[#2F5233]/20 via-[#B8862E]/20 to-transparent rounded-[3.5rem] blur-xl opacity-80 pointer-events-none"></div>
+            <div className="relative border-4 border-[#2F5233]/25 bg-white p-3.5 rounded-[2.5rem] shadow-xl hover-lift">
+              <div className="rounded-2xl overflow-hidden h-[380px] md:h-[450px] bg-[#1C2A1E]/5 group relative">
+                <img 
+                  src={plantImage} 
+                  alt="Sonarsiddha Contract Crop" 
+                  className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-[#1C2A1E]/90 backdrop-blur-md text-[#F3EEE1] px-3.5 py-1 rounded-full border border-[#B8862E]/50 text-xs font-mono font-bold">
+                  ✓ VERIFIED CROPS
+                </div>
+              </div>
+              <div className="mt-3 p-3 bg-[#F3EEE1]/80 rounded-xl border border-hairline flex items-center justify-between text-xs font-mono text-[#1C2A1E]">
+                <span className="font-bold">{isMr ? 'शेतकरी करार संच' : 'Contract Specification'}</span>
+                <span className="text-[#B8862E] font-bold">VALIDATED SPECIMEN</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Side: Mandi Line-Item Document Checklist */}
-          <div className="lg:col-span-7 bg-white border border-[#1C2A1E]/20 p-6 rounded-xs">
-            <div className="pb-4 mb-4 border-b border-[#1C2A1E]/20 flex items-center justify-between font-mono text-xs uppercase tracking-wider text-[#1C2A1E]/60">
-              <span>{isMr ? 'सुविधा तपशील' : 'Facility Agreement Terms'}</span>
-              <span>{isMr ? 'कोड' : 'Term Code'}</span>
+          {/* Right Side: Mandi Line-Item Document Checklist with Curved Border */}
+          <div className="lg:col-span-7 bg-white border-2 border-[#B8862E]/30 hover:border-[#B8862E] p-6 sm:p-8 rounded-[2.5rem] shadow-xl transition-all duration-300 hover-lift">
+            <div className="pb-4 mb-4 border-b border-hairline flex items-center justify-between font-mono text-xs uppercase tracking-wider text-[#1C2A1E]/60">
+              <span className="font-bold text-[#1C2A1E]">{isMr ? 'सुविधा तपशील' : 'Facility Agreement Terms'}</span>
+              <span className="text-[#B8862E] font-bold">{isMr ? 'कोड' : 'Term Code'}</span>
             </div>
 
             <div className="divide-y divide-[#1C2A1E]/10">
               {facilities.map((item, idx) => (
-                <div key={item.id} className="py-4 flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <span className="font-mono text-sm font-bold text-[#B8862E] pt-0.5">0{idx + 1}.</span>
-                    <div>
-                      <h3 className="font-body text-base font-bold text-[#1C2A1E]">
-                        {isMr ? item.nameMr : item.nameEn}
-                      </h3>
-                    </div>
+                <div 
+                  key={item.id} 
+                  className="py-3.5 px-3 rounded-xl hover:bg-[#1C2A1E] hover:text-[#F3EEE1] transition-all duration-300 group cursor-pointer flex items-center justify-between gap-4"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <span className="font-mono text-sm font-bold text-[#B8862E] group-hover:text-[#D4AF37]">0{idx + 1}.</span>
+                    <h3 className="font-body text-sm sm:text-base font-bold text-[#1C2A1E] group-hover:text-[#F3EEE1] transition-colors leading-tight">
+                      {isMr ? item.nameMr : item.nameEn}
+                    </h3>
                   </div>
-                  <span className="font-mono text-xs font-bold text-[#2F5233] bg-[#2F5233]/10 px-2 py-1 rounded-xs shrink-0">
+                  <span className="font-mono text-xs font-bold text-[#B8862E] bg-[#1C2A1E]/5 group-hover:bg-[#B8862E] group-hover:text-[#1C2A1E] px-2.5 py-1 rounded-lg border border-[#B8862E]/30 shrink-0 transition-colors">
                     {item.code}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 pt-4 border-t border-hairline flex items-center justify-between text-xs font-mono text-[#1C2A1E]/60">
+            <div className="mt-6 pt-4 border-t border-hairline flex items-center justify-between text-xs font-mono text-[#1C2A1E]/70">
               <span>{isMr ? 'कायदेशीर नोंदणीकृत करार' : 'Registered Legal Contract'}</span>
               <span className="text-[#B8862E] font-bold">{isMr ? '१००% खरेदी हमी' : '100% Buyback Guarantee'}</span>
             </div>

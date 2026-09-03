@@ -55,23 +55,23 @@ const Navbar = ({ language, setLanguage }) => {
   }, []);
 
   return (
-    <header className="w-full bg-[#1C2A1E] text-[#F3EEE1] border-b border-[#B8862E]/30 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="w-full bg-[#1C2A1E] text-[#F3EEE1] border-b-2 border-[#B8862E]/60 sticky top-0 z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
           {/* Brand Wordmark & Small Crest */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
             <img 
               src={logo} 
-              alt="Sonarsiddha Crest" 
-              className="h-9 w-9 rounded-full border border-[#B8862E]/60 object-cover" 
+              alt="Sonarsiddhi Crest" 
+              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#B8862E] object-cover shadow-sm" 
             />
             <div className="flex flex-col">
-              <span className="font-display text-xl tracking-tight text-[#F3EEE1] font-bold group-hover:text-[#B8862E] transition-colors">
-                SONARSIDDHA
+              <span className="font-display text-base sm:text-xl tracking-tight text-[#F3EEE1] font-bold group-hover:text-[#B8862E] transition-colors leading-none">
+                {language === 'mr' ? 'सोनारसिद्धी' : 'SONARSIDDHI'}
               </span>
-              <span className="text-[10px] tracking-widest text-[#B8862E] uppercase font-mono -mt-1">
-                Trading House & Mandi
+              <span className="text-[9px] sm:text-[10px] tracking-widest text-[#B8862E] uppercase font-mono mt-0.5">
+                {language === 'mr' ? 'ट्रेडिंग हाऊस आणि मंडी' : 'Trading House & Mandi'}
               </span>
             </div>
           </Link>
@@ -86,7 +86,7 @@ const Navbar = ({ language, setLanguage }) => {
                   to={item.path}
                   className={`text-sm font-medium transition-all py-1 border-b-2 ${
                     isActive 
-                      ? 'border-[#B8862E] text-[#B8862E]' 
+                      ? 'border-[#B8862E] text-[#B8862E] font-bold' 
                       : 'border-transparent text-[#F3EEE1]/80 hover:text-[#F3EEE1] hover:border-[#B8862E]/40'
                   }`}
                 >
@@ -98,43 +98,42 @@ const Navbar = ({ language, setLanguage }) => {
 
           {/* Language Toggle (MR / EN) & Admin Backoffice Link */}
           <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center border border-[#B8862E]/40 rounded overflow-hidden text-xs font-mono">
+            <div className="flex items-center border border-[#B8862E]/50 rounded-full overflow-hidden text-xs font-mono bg-[#1C2A1E]/80 shadow-xs">
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
-                className={`px-2.5 py-1 transition-colors ${
+                className={`px-3 py-1 transition-all cursor-pointer ${
                   language === 'mr' 
-                    ? 'bg-[#B8862E] text-[#1C2A1E] font-bold' 
+                    ? 'bg-[#B8862E] text-[#1C2A1E] font-bold shadow-xs' 
                     : 'bg-transparent text-[#F3EEE1]/70 hover:text-[#F3EEE1]'
                 }`}
               >
-                MR
+                मराठी
               </button>
-              <span className="text-[#B8862E]/40">|</span>
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-2.5 py-1 transition-colors ${
+                className={`px-3 py-1 transition-all cursor-pointer ${
                   language === 'en' 
-                    ? 'bg-[#B8862E] text-[#1C2A1E] font-bold' 
+                    ? 'bg-[#B8862E] text-[#1C2A1E] font-bold shadow-xs' 
                     : 'bg-transparent text-[#F3EEE1]/70 hover:text-[#F3EEE1]'
                 }`}
               >
-                EN
+                ENG
               </button>
             </div>
 
             <Link
               to="/admin/login"
-              className="text-xs uppercase tracking-wider font-mono text-[#F3EEE1]/70 hover:text-[#B8862E] border-b border-transparent hover:border-[#B8862E] transition-all"
+              className="text-xs uppercase tracking-wider font-mono text-[#F3EEE1]/80 hover:text-[#B8862E] border border-[#B8862E]/40 hover:border-[#B8862E] px-3 py-1 rounded-lg transition-all"
             >
               {language === 'mr' ? 'अ‍ॅडमिन लॉगिन' : 'Admin Login'}
             </Link>
           </div>
 
-          {/* Mobile Menu Trigger */}
-          <div className="md:hidden flex items-center gap-3">
-            <div className="flex items-center border border-[#B8862E]/40 rounded text-xs font-mono">
+          {/* Mobile Menu Trigger & Language Pill */}
+          <div className="md:hidden flex items-center gap-2">
+            <div className="flex items-center border border-[#B8862E]/50 rounded-full overflow-hidden text-[11px] font-mono bg-[#1C2A1E]">
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
@@ -153,14 +152,14 @@ const Navbar = ({ language, setLanguage }) => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-1.5 text-[#F3EEE1] hover:text-[#B8862E] focus:outline-none"
+              className="p-1.5 text-[#F3EEE1] hover:text-[#B8862E] focus:outline-none rounded-lg bg-[#2C3E63]/40 border border-[#B8862E]/30"
               aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>

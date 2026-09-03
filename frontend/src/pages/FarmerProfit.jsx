@@ -118,9 +118,9 @@ const FarmerProfit = ({ language }) => {
             </div>
 
             {/* Highlight Computed Profit Row (Field Green Ledger Block) */}
-            <div className="mt-6 p-4 bg-[#2F5233] text-[#F3EEE1] rounded-xs border border-[#B8862E]/40 flex items-center justify-between">
+            <div className="mt-6 p-5 bg-gradient-to-r from-[#2F5233] to-[#1C2A1E] text-[#F3EEE1] rounded-2xl border-2 border-[#B8862E] flex items-center justify-between shadow-xl hover-lift animate-pulse-glow">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#B8862E] block">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#B8862E] font-bold block">
                   {isMr ? 'अंदाजे नि्व्वळ नफा (प्रति एकर)' : 'Estimated Net Profit Balance (Per Acre)'}
                 </span>
                 <span className="font-display text-lg font-bold">

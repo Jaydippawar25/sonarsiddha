@@ -5,52 +5,56 @@ const FarmerHero = ({ language }) => {
   const isMr = language === 'mr';
 
   return (
-    <div className="relative w-full min-h-[600px] md:min-h-[80vh] flex items-center bg-[#FDFBF7] overflow-hidden">
+    <div className="relative w-full min-h-[500px] md:min-h-[70vh] flex items-center bg-[#F3EEE1] border-b border-[#1C2A1E]/15 overflow-hidden">
       {/* Right Side Image */}
-      <div className="absolute top-0 right-0 w-full md:w-[70%] h-full z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FDFBF7] from-[5%] via-[#FDFBF7]/60 via-[30%] to-transparent to-[70%] z-10 hidden md:block"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF7] from-[10%] via-[#FDFBF7]/60 to-transparent z-10 md:hidden"></div>
+      <div className="absolute top-0 right-0 w-full md:w-[65%] h-full z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F3EEE1] via-[#F3EEE1]/70 to-transparent z-10 hidden md:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#F3EEE1] via-[#F3EEE1]/70 to-transparent z-10 md:hidden"></div>
         <img 
           src={shevgaImage} 
-          alt="Shevga" 
-          className="w-full h-full object-cover object-center brightness-[0.75] contrast-125"
+          alt="Shevga Produce Lot" 
+          className="w-full h-full object-cover object-center contrast-110"
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col justify-center">
-        <div className="w-full md:w-[55%] lg:w-1/2 py-12 md:py-24">
-          {/* Red line */}
-          <div className="w-10 h-[1.5px] bg-[#B22222] mb-6"></div>
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col justify-center py-10 md:py-16">
+        <div className="w-full md:w-[58%] lg:w-1/2">
           
-          {/* Subtitle */}
-          <h3 className="text-[#B22222] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-6">
-            {isMr ? 'आमची शेतकरी कथा' : 'OUR FARMER STORY'}
-          </h3>
-          
-          {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-[3.5rem] font-serif text-[#1A1A1A] leading-[1.1] mb-6">
-            {isMr ? <>शेवगा लागवडीची<br/>प्रगत पद्धत<span className="text-[#B22222]">.</span></> : <>Generations<br/>of Shevga<br/>Farming<span className="text-[#B22222]">.</span></>}
-          </h1>
-          
-          {/* Description */}
-          <div className="text-[#4A4A4A] text-sm sm:text-base leading-relaxed mb-10 pr-4 md:pr-10 font-light">
+          <div className="inline-flex items-center gap-2 bg-[#2F5233] text-[#F3EEE1] px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-[#B8862E]/50 shadow-md">
+            <span>🌱 {isMr ? 'शेवगा लागवड क्रांती' : 'SHEVGA FARMING MODEL'}</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1C2A1E] leading-tight mb-4">
             {isMr ? (
-              <div className="space-y-2">
-                <p className="font-semibold text-lg">शेवगा (बियाणे) वैशिष्ट्ये</p>
-                <ul className="space-y-1">
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold">✓</span> आम्ही बियाणे पुरवतो</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold">✓</span> उच्च दर्जाचे बियाणे</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold">✓</span> ओकोमोटापोरा (फार्मा व्हरायटी)</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold">✓</span> वार्षिक किमान ५० किलो उत्पादन</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 font-bold">✓</span> शेवग्याची लांबी २ फूट</li>
-                </ul>
-              </div>
+              <>शेवगा लागवडीची<br/><span className="text-[#B8862E]">आधुनिक व प्रगत पद्धत.</span></>
             ) : (
-              <p>
-                Sonarsiddha represents the absolute pinnacle of Shevga farming. Founded with a vision to empower farmers, our project is dedicated to modern farming methods and delivering true micro-enterprise luxury to the global stage.
-              </p>
+              <>Modern Drumstick<br/><span className="text-[#B8862E]">Cultivation Model.</span></>
             )}
+          </h1>
+
+          <div className="bg-white/90 backdrop-blur-md border-2 border-[#B8862E]/30 p-5 rounded-3xl shadow-xl space-y-3 font-body text-sm text-[#1C2A1E]">
+            <p className="font-bold text-[#2F5233] text-base border-b border-hairline pb-2">
+              {isMr ? 'शेवगा (बियाणे) मुख्य वैशिष्ट्ये' : 'OIDC Seed Specifications'}
+            </p>
+            <ul className="space-y-2 font-medium">
+              <li className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
+                <span>{isMr ? 'सुधारित OIDC उच्च प्रतीचे बियाणे पुरवठा' : 'High-yield certified OIDC drumstick seed supply'}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
+                <span>{isMr ? 'वार्षिक किमान ५० किलो प्रति झाड उत्पन्न' : 'Minimum 50 kg yield per tree annually'}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
+                <span>{isMr ? '२ फूट लांब हिरवी व चवदार शेंग' : '2-feet uniform dark green pods'}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
+                <span>{isMr ? '७ वर्षांचा थेट हमीभाव खरेदी करार' : '7-Year legal buyback price agreement'}</span>
+              </li>
+            </ul>
           </div>
 
         </div>
