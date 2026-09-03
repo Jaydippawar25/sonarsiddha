@@ -56,7 +56,7 @@ const About = ({ language }) => {
           {/* Left Column: Photo Frame with Modern Curved Border & Shadow */}
           <div className="lg:col-span-5 relative">
             <ScrollReveal delay={100}>
-              <div className="relative border-4 border-emerald-600/20 p-3 bg-white rounded-3xl shadow-md">
+              <div className="relative animated-border-box border-4 border-emerald-600/20 p-3 bg-white rounded-3xl shadow-md">
                 
                 {/* Inner Image Container */}
                 <div className="relative h-[380px] md:h-[450px] overflow-hidden rounded-2xl bg-slate-100 group">

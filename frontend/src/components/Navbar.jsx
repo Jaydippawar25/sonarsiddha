@@ -61,7 +61,7 @@ const Navbar = ({ language, setLanguage }) => {
   }, []);
 
   return (
-    <header className="w-full bg-[#1C2A1E] text-white border-b-2 border-emerald-600/70 sticky top-0 z-50 shadow-md">
+    <header className="w-full bg-[#1C2A1E] text-white animated-border-bottom sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
           
