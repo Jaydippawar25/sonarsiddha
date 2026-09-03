@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
+import { API_BASE } from '../config';
 
 const Navbar = ({ language, setLanguage }) => {
   const [navItems, setNavItems] = useState([]);
@@ -9,7 +10,7 @@ const Navbar = ({ language, setLanguage }) => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/navbar')
+    fetch(`${API_BASE}/navbar`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

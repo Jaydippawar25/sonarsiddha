@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ScrollReveal from '../components/ScrollReveal';
 import image1 from '../assets/image1.png';
 import logo from '../assets/logo.jpeg';
+import { API_BASE } from '../config';
 
 const About = ({ language }) => {
   const isMr = language === 'mr';
@@ -9,7 +10,7 @@ const About = ({ language }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/about')
+    fetch(`${API_BASE}/about`)
       .then(res => res.json())
       .then(aboutData => {
         setData(aboutData);

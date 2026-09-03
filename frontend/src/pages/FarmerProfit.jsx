@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import farmImage from '../assets/shevga_drumsticks.jpg';
+import { API_BASE } from '../config';
 
 const FarmerProfit = ({ language }) => {
   const isMr = language === 'mr';
@@ -7,7 +8,7 @@ const FarmerProfit = ({ language }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/profit')
+    fetch(`${API_BASE}/profit`)
       .then(res => res.json())
       .then(profitData => {
         setData(profitData);

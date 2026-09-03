@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ScrollReveal from '../components/ScrollReveal';
 import { db } from '../firebase';
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { API_BASE } from '../config';
 
 const YoutubeVideos = ({ language }) => {
   const isMr = language === 'mr';
@@ -20,7 +21,7 @@ const YoutubeVideos = ({ language }) => {
       setLoading(false);
     } catch (error) {
       try {
-        const res = await fetch('http://localhost:5000/api/youtube');
+        const res = await fetch(`${API_BASE}/youtube`);
         const data = await res.json();
         setVideos(data);
       } catch (err) {

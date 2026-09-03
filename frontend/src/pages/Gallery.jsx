@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ScrollReveal from '../components/ScrollReveal';
+import { API_BASE } from '../config';
 
 const Gallery = ({ language }) => {
   const isMr = language === 'mr';
@@ -7,7 +8,7 @@ const Gallery = ({ language }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/team')
+    fetch(`${API_BASE}/team`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

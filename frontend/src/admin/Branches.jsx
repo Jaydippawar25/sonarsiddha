@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { Edit2, Trash2, Plus, X } from 'lucide-react';
+import { API_BASE } from '../config';
 
 const Branches = () => {
   const [branches, setBranches] = useState([]);
@@ -18,7 +19,7 @@ const Branches = () => {
 
   const fetchBranches = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/branches');
+      const res = await fetch(`${API_BASE}/branches`);
       if (res.ok) {
         const data = await res.json();
         setBranches(data);
@@ -64,7 +65,7 @@ const Branches = () => {
     };
 
     try {
-      const url = editingId ? `http://localhost:5000/api/branches/${editingId}` : 'http://localhost:5000/api/branches';
+      const url = editingId ? `${API_BASE}/branches/${editingId}` : `${API_BASE}/branches`;
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -88,7 +89,7 @@ const Branches = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this branch?')) {
       try {
-        const res = await fetch(`http://localhost:5000/api/branches/${id}`, { method: 'DELETE' });
+        const res = await fetch(`${API_BASE}/branches/${id}`, { method: 'DELETE' });
         if (res.ok) {
           toast.success('Branch deleted');
           fetchBranches();

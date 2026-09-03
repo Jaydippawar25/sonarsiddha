@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { Edit2, Trash2, Plus, X } from 'lucide-react';
+import { API_BASE } from '../config';
 
 const DailyRates = () => {
   const [rates, setRates] = useState([]);
@@ -17,8 +18,8 @@ const DailyRates = () => {
   const fetchData = async () => {
     try {
       const [resRates, resProducts] = await Promise.all([
-        fetch('http://localhost:5000/api/dailyRates'),
-        fetch('http://localhost:5000/api/products')
+        fetch(`${API_BASE}/dailyRates`),
+        fetch(`${API_BASE}/products`)
       ]);
 
       if (resRates.ok && resProducts.ok) {
@@ -86,7 +87,7 @@ const DailyRates = () => {
     }
 
     try {
-      const url = editingId ? `http://localhost:5000/api/dailyRates/${editingId}` : 'http://localhost:5000/api/dailyRates';
+      const url = editingId ? `${API_BASE}/dailyRates/${editingId}` : `${API_BASE}/dailyRates`;
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -110,7 +111,7 @@ const DailyRates = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this rate entry?')) {
       try {
-        const res = await fetch(`http://localhost:5000/api/dailyRates/${id}`, { method: 'DELETE' });
+        const res = await fetch(`${API_BASE}/dailyRates/${id}`, { method: 'DELETE' });
         if (res.ok) {
           toast.success('Rate deleted');
           fetchData();

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { Edit2, Trash2, Plus, X, Upload } from 'lucide-react';
+import { API_BASE } from '../config';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ const Products = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/products');
+      const res = await fetch(`${API_BASE}/products`);
       if (res.ok) {
         const data = await res.json();
         setProducts(data);
@@ -66,7 +67,7 @@ const Products = () => {
 
     setUploadingImage(true);
     try {
-      const res = await fetch('http://localhost:5000/api/upload', {
+      const res = await fetch(`${API_BASE}/upload`, {
         method: 'POST',
         body: imgData
       });
@@ -98,7 +99,7 @@ const Products = () => {
     };
 
     try {
-      const url = editingId ? `http://localhost:5000/api/products/${editingId}` : 'http://localhost:5000/api/products';
+      const url = editingId ? `${API_BASE}/products/${editingId}` : `${API_BASE}/products`;
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -122,7 +123,7 @@ const Products = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`, { method: 'DELETE' });
+        const res = await fetch(`${API_BASE}/products/${id}`, { method: 'DELETE' });
         if (res.ok) {
           toast.success('Product deleted');
           fetchProducts();

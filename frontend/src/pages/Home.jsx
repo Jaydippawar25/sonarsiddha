@@ -7,13 +7,14 @@ import Gallery from './Gallery';
 import YoutubeVideos from './YoutubeVideos';
 import heroImageMr from '../assets/hero_mr.jpg';
 import heroImageEn from '../assets/hero_en.jpg';
+import { API_BASE } from '../config';
 
 const Home = ({ language }) => {
   const isMr = language === 'mr';
   const [rates, setRates] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/dailyRates')
+    fetch(`${API_BASE}/dailyRates`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) setRates(data);

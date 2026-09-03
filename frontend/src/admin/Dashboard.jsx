@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
+import { API_BASE } from '../config';
 
 const Dashboard = () => {
   const context = useOutletContext() || {};
@@ -18,10 +19,10 @@ const Dashboard = () => {
   const statLabels = {
     branches: isMr ? 'खरेदी केंद्रे' : 'Mandi Outlets',
     members: isMr ? 'कार्यकारी मंडळ' : 'Trade Members',
-    products: isMr ? 'उत्पादने व बियाणे' : 'Seeds & Products',
-    dailyRates: isMr ? 'दैनंदिन बाजारभाव' : 'Daily Rates',
+    products: isMr ? 'उत्पादने व वाण' : 'Products & Varieties',
+    dailyRates: isMr ? 'दैनिक बाजार भाव' : 'Daily Market Rates',
     certifications: isMr ? 'प्रमाणपत्रे' : 'Certifications',
-    videos: isMr ? 'व्हिडिओ नोंदणी' : 'Field Videos'
+    videos: isMr ? 'व्हिडिओ नोंदणी' : 'Video Records'
   };
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Dashboard = () => {
         const endpoints = ['branches', 'members', 'products', 'dailyRates', 'certifications', 'videos'];
         const newStats = {};
         for(let ep of endpoints) {
-          const res = await fetch(`http://localhost:5000/api/${ep}`);
+          const res = await fetch(`${API_BASE}/${ep}`);
           if (res.ok) {
             const data = await res.json();
             newStats[ep] = data.length || 0;

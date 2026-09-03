@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from '../config';
 
 const FarmerRequirements = ({ language }) => {
   const isMr = language === 'mr';
@@ -6,7 +7,7 @@ const FarmerRequirements = ({ language }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/requirements')
+    fetch(`${API_BASE}/requirements`)
       .then(res => res.json())
       .then(reqData => {
         setData(reqData);

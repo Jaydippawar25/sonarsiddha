@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { API_BASE } from '../config';
 
 const Profit = () => {
   const [data, setData] = useState({
@@ -18,7 +19,7 @@ const Profit = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/profit');
+      const res = await fetch(`${API_BASE}/profit`);
       const json = await res.json();
       if (json.expenses) {
         setData(json);
@@ -55,7 +56,7 @@ const Profit = () => {
 
   const handleSave = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/profit', {
+      const res = await fetch(`${API_BASE}/profit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

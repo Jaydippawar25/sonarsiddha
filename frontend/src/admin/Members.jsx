@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { Edit2, Trash2, Plus, X, Upload } from 'lucide-react';
+import { API_BASE } from '../config';
 
 const Members = () => {
   const [members, setMembers] = useState([]);
@@ -16,7 +17,7 @@ const Members = () => {
 
   const fetchMembers = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/members');
+      const res = await fetch(`${API_BASE}/members`);
       if (res.ok) {
         const data = await res.json();
         setMembers(data);
@@ -59,7 +60,7 @@ const Members = () => {
 
     setUploadingImage(true);
     try {
-      const res = await fetch('http://localhost:5000/api/upload', {
+      const res = await fetch(`${API_BASE}/upload`, {
         method: 'POST',
         body: imgData
       });
@@ -80,7 +81,7 @@ const Members = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = editingId ? `http://localhost:5000/api/members/${editingId}` : 'http://localhost:5000/api/members';
+      const url = editingId ? `${API_BASE}/members/${editingId}` : `${API_BASE}/members`;
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -104,7 +105,7 @@ const Members = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this member?')) {
       try {
-        const res = await fetch(`http://localhost:5000/api/members/${id}`, { method: 'DELETE' });
+        const res = await fetch(`${API_BASE}/members/${id}`, { method: 'DELETE' });
         if (res.ok) {
           toast.success('Member deleted');
           fetchMembers();
