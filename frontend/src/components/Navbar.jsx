@@ -3,9 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
 import { API_BASE } from '../config';
 
+const DEFAULT_NAV_ITEMS = [
+  { id: 1, nameEn: 'Home', nameMr: 'मुखपृष्ठ', path: '/' },
+  { id: 2, nameEn: 'About Us', nameMr: 'आमच्याबद्दल', path: '/about' },
+  { id: 3, nameEn: 'Farmer', nameMr: 'शेतकरी', path: '/farmer' },
+  { id: 4, nameEn: 'Farmer Details', nameMr: 'शेतकरी माहिती', path: '/farmer-details' },
+  { id: 5, nameEn: 'Gallery', nameMr: 'गॅलरी', path: '/gallery' }
+];
+
 const Navbar = ({ language, setLanguage }) => {
-  const [navItems, setNavItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [navItems, setNavItems] = useState(DEFAULT_NAV_ITEMS);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -13,7 +20,7 @@ const Navbar = ({ language, setLanguage }) => {
     fetch(`${API_BASE}/navbar`)
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data)) {
+        if (Array.isArray(data) && data.length > 0) {
           data.sort((a, b) => a.id - b.id);
           
           const galleryIndex = data.findIndex(item => item.path === '/gallery');
@@ -47,16 +54,14 @@ const Navbar = ({ language, setLanguage }) => {
 
           setNavItems(data);
         }
-        setLoading(false);
       })
       .catch(err => {
         console.error("Error fetching navbar items:", err);
-        setLoading(false);
       });
   }, []);
 
   return (
-    <header className="w-full bg-[#1C2A1E] text-[#F3EEE1] border-b-2 border-[#B8862E]/60 sticky top-0 z-50 shadow-md">
+    <header className="w-full text-[#F3EEE1] border-b-2 border-[#B8862E]/60 sticky top-0 z-50 shadow-md bg-[#1C2A1E]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
@@ -79,7 +84,7 @@ const Navbar = ({ language, setLanguage }) => {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
-            {!loading && navItems.map(item => {
+            {navItems.map(item => {
               const isActive = location.pathname === item.path;
               return (
                 <Link
@@ -126,15 +131,15 @@ const Navbar = ({ language, setLanguage }) => {
 
             <Link
               to="/admin/login"
-              className="text-xs uppercase tracking-wider font-mono text-[#F3EEE1]/80 hover:text-[#B8862E] border border-[#B8862E]/40 hover:border-[#B8862E] px-3 py-1 rounded-lg transition-all"
+              className="text-xs font-mono text-[#F3EEE1]/90 hover:text-[#B8862E] border border-[#B8862E]/40 hover:border-[#B8862E] px-3 py-1.5 rounded-xl transition-all shadow-xs"
             >
-              {language === 'mr' ? 'अ‍ॅडमिन लॉगिन' : 'Admin Login'}
+              {language === 'mr' ? 'ॲडमिन लॉगिन' : 'Admin Login'}
             </Link>
           </div>
 
-          {/* Mobile Menu Trigger & Language Pill */}
-          <div className="md:hidden flex items-center gap-2">
-            <div className="flex items-center border border-[#B8862E]/50 rounded-full overflow-hidden text-[11px] font-mono bg-[#1C2A1E]">
+          {/* Mobile Right Controls */}
+          <div className="flex md:hidden items-center gap-2">
+            <div className="flex items-center border border-[#B8862E]/40 rounded-full overflow-hidden text-[10px] font-mono bg-[#1C2A1E]/80">
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
@@ -172,7 +177,7 @@ const Navbar = ({ language, setLanguage }) => {
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="md:hidden border-t border-[#B8862E]/30 bg-[#1C2A1E] px-4 pt-3 pb-6 space-y-3">
-          {!loading && navItems.map(item => (
+          {navItems.map(item => (
             <Link
               key={item.id}
               to={item.path}
