@@ -1,0 +1,19 @@
+# Secrets & Service Account Keys
+serviceAccountKey.json
+serviceAccountKey*.json
+*.pem
+.env
+.env.local
+.env.*.local
+*.key
+
+# Node Modules
+node_modules/
+**/node_modules/
+
+# Build Outputs & Cache
+dist/
+**/dist/
+build/
+.vite/
+.DS_Store
