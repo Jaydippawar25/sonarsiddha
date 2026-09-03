@@ -23,7 +23,7 @@ const Home = ({ language }) => {
   }, []);
 
   return (
-    <div className="w-full bg-[#F3EEE1] text-[#1C2A1E]">
+    <div className="w-full bg-[#FFFFFF] text-[#1C2A1E]">
       
       {/* Main Hero Landing Banner Section - Extra Large & Tall */}
       <div className="w-full bg-[#1C2A1E] flex justify-center border-b-2 border-[#B8862E] shadow-md overflow-hidden relative">
@@ -99,7 +99,7 @@ const Home = ({ language }) => {
       </section>
 
       {/* Executive 4-Pillar Quick Feature Grid */}
-      <section className="py-6 sm:py-10 bg-[#F3EEE1] border-b border-[#1C2A1E]/15">
+      <section className="py-6 sm:py-10 bg-[#FFFFFF] border-b border-[#1C2A1E]/15">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             

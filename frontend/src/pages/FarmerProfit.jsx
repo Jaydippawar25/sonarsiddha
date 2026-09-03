@@ -33,7 +33,7 @@ const FarmerProfit = ({ language }) => {
   };
 
   return (
-    <section className="py-8 md:py-12 bg-[#F3EEE1] text-[#1C2A1E] border-b border-[#1C2A1E]/15">
+    <section className="py-8 md:py-12 bg-[#FFFFFF] text-[#1C2A1E] border-b border-[#1C2A1E]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -62,7 +62,7 @@ const FarmerProfit = ({ language }) => {
                 alt="Drumstick Produce Lot" 
                 className="w-full h-[340px] object-cover rounded-2xl"
               />
-              <div className="mt-3 p-3 bg-[#F3EEE1]/70 rounded-xl border border-hairline font-mono text-xs space-y-1.5 text-[#1C2A1E]/80">
+              <div className="mt-3 p-3 bg-[#FFFFFF] rounded-xl border border-[#B8862E]/30 font-mono text-xs space-y-1.5 text-[#1C2A1E]/80">
                 <div className="flex justify-between">
                   <span>{isMr ? 'पिकाची जात' : 'Crop Variety'}:</span>
                   <strong className="text-[#B8862E]">OIDC-3 Shevga</strong>

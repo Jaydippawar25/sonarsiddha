@@ -45,7 +45,7 @@ const FarmerSeeds = ({ language }) => {
   ];
 
   return (
-    <div className="w-full bg-[#F3EEE1] text-[#1C2A1E] py-8 md:py-12 px-4 sm:px-6 lg:px-12 font-body border-b border-[#1C2A1E]/15">
+    <div className="w-full bg-[#FFFFFF] text-[#1C2A1E] py-8 md:py-12 px-4 sm:px-6 lg:px-12 font-body border-b border-[#1C2A1E]/15">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -76,7 +76,7 @@ const FarmerSeeds = ({ language }) => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="mt-3 p-3 bg-[#F3EEE1]/80 rounded-xl border border-hairline flex items-center justify-between text-xs font-mono text-[#1C2A1E]">
+              <div className="mt-3 p-3 bg-[#FFFFFF] rounded-xl border border-[#B8862E]/30 flex items-center justify-between text-xs font-mono text-[#1C2A1E]">
                 <span>{isMr ? 'ओआयडीसी-३ वाण' : 'OIDC-3 Variety'}</span>
                 <span className="text-[#B8862E] font-bold">1800 TREES/ACRE</span>
               </div>
@@ -92,7 +92,7 @@ const FarmerSeeds = ({ language }) => {
             
             <ul className="space-y-3 mb-8">
               {calculations.map((calc, idx) => (
-                <li key={idx} className="flex items-center gap-3 bg-[#F3EEE1]/50 hover:bg-[#1C2A1E] hover:text-[#F3EEE1] p-3.5 rounded-xl border border-hairline transition-all duration-300 group cursor-pointer">
+                <li key={idx} className="flex items-center gap-3 bg-[#FFFFFF] hover:bg-[#1C2A1E] hover:text-[#F3EEE1] p-3.5 rounded-xl border border-[#B8862E]/20 transition-all duration-300 group cursor-pointer">
                   <div className="w-8 h-8 rounded-full bg-[#B8862E] text-[#1C2A1E] flex items-center justify-center font-mono font-bold text-sm shrink-0">
                     0{idx + 1}
                   </div>

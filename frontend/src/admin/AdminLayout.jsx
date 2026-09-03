@@ -85,7 +85,7 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-[#F3EEE1] text-[#1C2A1E] font-body overflow-hidden">
+    <div className="flex flex-col md:flex-row h-screen bg-[#FFFFFF] text-[#1C2A1E] font-body overflow-hidden">
       
       {/* Mobile Top Navigation Bar (< md) */}
       <header className="md:hidden bg-[#1C2A1E] text-[#F3EEE1] border-b border-[#B8862E]/40 px-4 py-3 flex items-center justify-between z-30 shrink-0">
@@ -242,7 +242,7 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
             {/* Desktop Language Switcher Pill */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F3EEE1] hover:bg-[#B8862E] hover:text-white border border-[#B8862E]/40 rounded-full text-xs font-mono transition-all text-[#1C2A1E] cursor-pointer shadow-xs"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFFFFF] hover:bg-[#B8862E] hover:text-white border border-[#B8862E]/40 rounded-full text-xs font-mono transition-all text-[#1C2A1E] cursor-pointer shadow-xs"
             >
               <Globe size={14} className="text-[#B8862E]" />
               <span className="font-bold">{isMr ? 'मराठी' : 'ENGLISH'}</span>
@@ -255,7 +255,7 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 bg-[#F3EEE1] bg-farm-pattern">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 bg-[#FFFFFF] bg-farm-pattern">
           <Outlet context={{ language, setLanguage }} />
         </main>
       </div>

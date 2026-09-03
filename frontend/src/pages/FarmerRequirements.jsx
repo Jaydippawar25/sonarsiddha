@@ -28,7 +28,7 @@ const FarmerRequirements = ({ language }) => {
   }
 
   return (
-    <div className="bg-[#F3EEE1] py-8 md:py-12 px-4 font-body relative overflow-hidden">
+    <div className="bg-[#FFFFFF] py-8 md:py-12 px-4 font-body relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}

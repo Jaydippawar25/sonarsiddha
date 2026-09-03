@@ -23,7 +23,7 @@ const PhotoGallery = ({ language }) => {
   ];
 
   return (
-    <div className="bg-[#F3EEE1] text-[#1C2A1E] py-8 md:py-12 px-4 font-body border-b border-[#1C2A1E]/15" id="gallery">
+    <div className="bg-[#FFFFFF] text-[#1C2A1E] py-8 md:py-12 px-4 font-body border-b border-[#1C2A1E]/15" id="gallery">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}

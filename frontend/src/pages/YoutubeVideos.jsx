@@ -36,13 +36,13 @@ const YoutubeVideos = ({ language }) => {
   }, []);
 
   if (loading) return (
-    <div className="py-16 bg-[#F3EEE1] text-center font-mono text-xs uppercase tracking-widest text-[#1C2A1E]/60">
+    <div className="py-16 bg-[#FFFFFF] text-center font-mono text-xs uppercase tracking-widest text-[#1C2A1E]/60">
       {isMr ? 'व्हिडिओ डेटा लोड होत आहे...' : 'Loading Video Archive...'}
     </div>
   );
 
   return (
-    <section className="py-8 md:py-12 bg-[#F3EEE1] text-[#1C2A1E]">
+    <section className="py-8 md:py-12 bg-[#FFFFFF] text-[#1C2A1E]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -5,11 +5,11 @@ const FarmerHero = ({ language }) => {
   const isMr = language === 'mr';
 
   return (
-    <div className="relative w-full min-h-[500px] md:min-h-[70vh] flex items-center bg-[#F3EEE1] border-b border-[#1C2A1E]/15 overflow-hidden">
+    <div className="relative w-full min-h-[500px] md:min-h-[70vh] flex items-center bg-[#FFFFFF] border-b border-[#1C2A1E]/15 overflow-hidden">
       {/* Right Side Image */}
       <div className="absolute top-0 right-0 w-full md:w-[65%] h-full z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F3EEE1] via-[#F3EEE1]/70 to-transparent z-10 hidden md:block"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F3EEE1] via-[#F3EEE1]/70 to-transparent z-10 md:hidden"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/75 to-transparent z-10 hidden md:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-[#FFFFFF]/75 to-transparent z-10 md:hidden"></div>
         <img 
           src={shevgaImage} 
           alt="Shevga Produce Lot" 
