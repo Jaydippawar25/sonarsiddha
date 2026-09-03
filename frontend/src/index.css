@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1C2A1E;
+  --paper: #F3EEE1;
+  --field-green: #2F5233;
+  --gold: #B8862E;
+  --indigo-cargo: #2C3E63;
+  --rust-soil: #8C4A2F;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', 'Public Sans', 'Hind', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Outfit', 'Fraunces', 'Tiro Devanagari Marathi', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', 'Public Sans', 'Hind', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Inter', 'Public Sans', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.border-hairline {
+  border-color: rgba(28, 42, 30, 0.15);
+}
+
+.border-gold-hairline {
+  border-color: rgba(184, 134, 46, 0.35);
+}
+
+/* Custom ledger scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: #C8BFAB;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Preloader Animations */
+@keyframes progressFill {
+  0% { width: 0%; }
+  40% { width: 55%; }
+  80% { width: 88%; }
+  100% { width: 100%; }
+}
+.animate-progress-fill {
+  animation: progressFill 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 6s linear infinite;
+}
+
+@keyframes floatGlow {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.75;
+    filter: drop-shadow(0 15px 30px rgba(184, 134, 46, 0.45));
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.025);
+    opacity: 0.95;
+    filter: drop-shadow(0 25px 45px rgba(47, 82, 51, 0.65));
+  }
+}
+.animate-float-glow {
+  animation: floatGlow 4s ease-in-out infinite;
+}

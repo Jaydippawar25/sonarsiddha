@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment Variables (NEVER COMMIT)
+.env
+.env.local
+.env.production
+.env.development
+
+# Build Output
+dist/
+build/
+
+# IDE / OS Junk
+.DS_Store
+*.log

@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Secrets & Keys (NEVER COMMIT)
+.env
+.env.local
+.env.production
+serviceAccountKey.json
+*.json
+!package.json
+!package-lock.json
+
+# Logs
+*.log
