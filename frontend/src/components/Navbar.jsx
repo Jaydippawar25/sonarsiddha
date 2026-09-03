@@ -61,39 +61,39 @@ const Navbar = ({ language, setLanguage }) => {
   }, []);
 
   return (
-    <header className="w-full text-[#F3EEE1] border-b-2 border-[#B8862E]/60 sticky top-0 z-50 shadow-md bg-[#1C2A1E]">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="w-full bg-white/95 backdrop-blur-md text-slate-900 border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-18">
           
-          {/* Brand Wordmark & Small Crest */}
-          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          {/* Brand Logo & Wordmark */}
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
             <img 
               src={logo} 
               alt="Sonarsiddhi Crest" 
-              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#B8862E] object-cover shadow-sm" 
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-full border-2 border-emerald-600/80 object-cover shadow-xs group-hover:scale-105 transition-transform" 
             />
             <div className="flex flex-col">
-              <span className="font-display text-base sm:text-xl tracking-tight text-[#F3EEE1] font-bold group-hover:text-[#B8862E] transition-colors leading-none">
+              <span className="font-display text-lg sm:text-xl tracking-tight text-slate-900 font-bold group-hover:text-emerald-700 transition-colors leading-none">
                 {language === 'mr' ? 'सोनारसिद्धी' : 'SONARSIDDHI'}
               </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest text-[#B8862E] uppercase font-mono mt-0.5">
+              <span className="text-[10px] sm:text-[11px] tracking-wider text-emerald-700 uppercase font-mono font-semibold mt-0.5">
                 {language === 'mr' ? 'ट्रेडिंग हाऊस आणि मंडी' : 'Trading House & Mandi'}
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {navItems.map(item => {
               const isActive = location.pathname === item.path;
               return (
                 <Link
                   key={item.id}
                   to={item.path}
-                  className={`text-sm font-medium transition-all py-1 border-b-2 ${
+                  className={`text-sm font-semibold transition-all py-1.5 border-b-2 ${
                     isActive 
-                      ? 'border-[#B8862E] text-[#B8862E] font-bold' 
-                      : 'border-transparent text-[#F3EEE1]/80 hover:text-[#F3EEE1] hover:border-[#B8862E]/40'
+                      ? 'border-emerald-600 text-emerald-700 font-bold' 
+                      : 'border-transparent text-slate-600 hover:text-emerald-700 hover:border-emerald-300'
                   }`}
                 >
                   {language === 'mr' ? item.nameMr : item.nameEn}
@@ -102,16 +102,17 @@ const Navbar = ({ language, setLanguage }) => {
             })}
           </nav>
 
-          {/* Language Toggle (MR / EN) & Admin Backoffice Link */}
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center border border-[#B8862E]/50 rounded-full overflow-hidden text-xs font-mono bg-[#1C2A1E]/80 shadow-xs">
+          {/* Language Toggle & Admin Login Action */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Segmented Language Switcher Pill */}
+            <div className="flex items-center p-1 bg-slate-100 rounded-full border border-slate-200 text-xs font-semibold shadow-xs">
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
-                className={`px-3 py-1 transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-full transition-all cursor-pointer ${
                   language === 'mr' 
-                    ? 'bg-[#B8862E] text-[#1C2A1E] font-bold shadow-xs' 
-                    : 'bg-transparent text-[#F3EEE1]/70 hover:text-[#F3EEE1]'
+                    ? 'bg-emerald-700 text-white font-bold shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 मराठी
@@ -119,10 +120,10 @@ const Navbar = ({ language, setLanguage }) => {
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-3 py-1 transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-full transition-all cursor-pointer ${
                   language === 'en' 
-                    ? 'bg-[#B8862E] text-[#1C2A1E] font-bold shadow-xs' 
-                    : 'bg-transparent text-[#F3EEE1]/70 hover:text-[#F3EEE1]'
+                    ? 'bg-emerald-700 text-white font-bold shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 ENG
@@ -131,26 +132,26 @@ const Navbar = ({ language, setLanguage }) => {
 
             <Link
               to="/admin/login"
-              className="text-xs font-mono text-[#F3EEE1]/90 hover:text-[#B8862E] border border-[#B8862E]/40 hover:border-[#B8862E] px-3 py-1.5 rounded-xl transition-all shadow-xs"
+              className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-700 hover:text-white border border-emerald-200 px-3.5 py-2 rounded-xl transition-all shadow-xs"
             >
               {language === 'mr' ? 'ॲडमिन लॉगिन' : 'Admin Login'}
             </Link>
           </div>
 
-          {/* Mobile Right Controls */}
+          {/* Mobile Navigation Controls */}
           <div className="flex md:hidden items-center gap-2">
-            <div className="flex items-center border border-[#B8862E]/40 rounded-full overflow-hidden text-[10px] font-mono bg-[#1C2A1E]/80">
+            <div className="flex items-center p-0.5 bg-slate-100 rounded-full border border-slate-200 text-[11px] font-semibold">
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
-                className={`px-2 py-0.5 ${language === 'mr' ? 'bg-[#B8862E] text-[#1C2A1E] font-bold' : 'text-[#F3EEE1]/70'}`}
+                className={`px-2 py-0.5 rounded-full ${language === 'mr' ? 'bg-emerald-700 text-white font-bold' : 'text-slate-600'}`}
               >
                 MR
               </button>
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-2 py-0.5 ${language === 'en' ? 'bg-[#B8862E] text-[#1C2A1E] font-bold' : 'text-[#F3EEE1]/70'}`}
+                className={`px-2 py-0.5 rounded-full ${language === 'en' ? 'bg-emerald-700 text-white font-bold' : 'text-slate-600'}`}
               >
                 EN
               </button>
@@ -158,7 +159,7 @@ const Navbar = ({ language, setLanguage }) => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-1.5 text-[#F3EEE1] hover:text-[#B8862E] focus:outline-none rounded-lg bg-[#2C3E63]/40 border border-[#B8862E]/30"
+              className="p-2 text-slate-700 hover:text-emerald-700 focus:outline-none rounded-xl bg-slate-100 border border-slate-200"
               aria-label="Toggle menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,14 +175,14 @@ const Navbar = ({ language, setLanguage }) => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Touch Drawer */}
       {isOpen && (
-        <div className="md:hidden border-t border-[#B8862E]/30 bg-[#1C2A1E] px-4 pt-3 pb-6 space-y-3">
+        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
           {navItems.map(item => (
             <Link
               key={item.id}
               to={item.path}
-              className="block text-base text-[#F3EEE1]/90 hover:text-[#B8862E] py-1 border-b border-[#B8862E]/10"
+              className="block text-base font-semibold text-slate-800 hover:text-emerald-700 py-2 border-b border-slate-100"
               onClick={() => setIsOpen(false)}
             >
               {language === 'mr' ? item.nameMr : item.nameEn}
@@ -189,10 +190,10 @@ const Navbar = ({ language, setLanguage }) => {
           ))}
           <Link
             to="/admin/login"
-            className="block text-xs uppercase tracking-widest text-[#B8862E] font-mono pt-2"
+            className="block text-xs uppercase tracking-wider text-emerald-700 font-mono font-bold pt-3"
             onClick={() => setIsOpen(false)}
           >
-            {language === 'mr' ? 'अ‍ॅडमिन लॉगिन' : 'Admin Login'}
+            {language === 'mr' ? 'ॲडमिन लॉगिन' : 'Admin Login'}
           </Link>
         </div>
       )}

@@ -85,13 +85,13 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-[#FFFFFF] text-[#1C2A1E] font-body overflow-hidden">
+    <div className="flex flex-col md:flex-row h-screen bg-slate-50 text-slate-900 font-body overflow-hidden">
       
       {/* Mobile Top Navigation Bar (< md) */}
-      <header className="md:hidden bg-[#1C2A1E] text-[#F3EEE1] border-b border-[#B8862E]/40 px-4 py-3 flex items-center justify-between z-30 shrink-0">
+      <header className="md:hidden bg-slate-900 text-white border-b border-slate-800 px-4 py-3 flex items-center justify-between z-30 shrink-0">
         <div className="flex items-center gap-2.5">
-          <img src={logo} alt="Logo" className="w-7 h-7 rounded-full border border-[#B8862E]" />
-          <span className="font-display font-bold text-base tracking-tight text-[#F3EEE1]">
+          <img src={logo} alt="Logo" className="w-7 h-7 rounded-full border border-emerald-400" />
+          <span className="font-display font-bold text-base tracking-tight text-white">
             {isMr ? 'सोनारसिद्धी' : 'SONARSIDDHI'}
           </span>
         </div>
@@ -100,49 +100,47 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
           {/* Mobile Language Switcher */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-1 px-2.5 py-1 bg-[#F3EEE1]/10 hover:bg-[#B8862E] border border-[#B8862E]/40 rounded-full text-xs font-mono transition-colors text-[#F3EEE1] cursor-pointer"
+            className="px-2.5 py-1 bg-slate-800 border border-slate-700 rounded-full text-[11px] font-mono text-emerald-400 font-bold"
           >
-            <Globe size={12} className="text-[#B8862E]" />
-            <span className="font-bold">{isMr ? 'मराठी' : 'ENG'}</span>
+            {isMr ? 'मराठी' : 'ENG'}
           </button>
 
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-lg bg-[#2C3E63] text-[#F3EEE1] border border-[#B8862E]/30 focus:outline-none cursor-pointer"
-            aria-label="Toggle Navigation Menu"
+            className="text-slate-300 hover:text-white p-1"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile Backdrop Overlay (< md) */}
+      {/* Mobile Backdrop */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 md:hidden transition-opacity"
+          className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 md:hidden transition-opacity"
           onClick={() => setMobileMenuOpen(false)}
         ></div>
       )}
 
       {/* Mobile Drawer Sidebar (< md) */}
-      <aside className={`fixed inset-y-0 left-0 w-64 bg-[#1C2A1E] text-[#F3EEE1] flex flex-col border-r border-[#1C2A1E] z-50 transform transition-transform duration-300 md:hidden ${
+      <aside className={`fixed inset-y-0 left-0 w-64 bg-slate-900 text-slate-100 flex flex-col border-r border-slate-800 z-50 transform transition-transform duration-300 md:hidden ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-        <div className="p-5 border-b border-[#F3EEE1]/10 flex items-center justify-between">
+        <div className="p-5 border-b border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Logo" className="w-8 h-8 rounded-full border border-[#B8862E]" />
+            <img src={logo} alt="Logo" className="w-8 h-8 rounded-full border border-emerald-400" />
             <div>
-              <h2 className="font-display text-lg font-bold tracking-tight text-[#F3EEE1]">
+              <h2 className="font-display text-lg font-bold tracking-tight text-white">
                 {isMr ? 'सोनारसिद्धी' : 'SONARSIDDHI'}
               </h2>
-              <span className="text-[10px] font-body font-bold uppercase tracking-widest text-[#B8862E] block -mt-0.5">
-                {isMr ? 'बॅक-ऑफिस कंसोल' : 'Console'}
+              <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-amber-400 block -mt-0.5">
+                {isMr ? 'बॅक-ऑफिस कंसोल' : 'Admin Console'}
               </span>
             </div>
           </div>
           <button 
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[#F3EEE1]/60 hover:text-white p-1"
+            className="text-slate-400 hover:text-white p-1"
           >
             <X size={20} />
           </button>
@@ -159,8 +157,8 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-body font-semibold transition-all ${
                   isActive 
-                    ? 'bg-[#2C3E63] text-white font-bold shadow-sm' 
-                    : 'text-[#F3EEE1]/80 hover:bg-[#F3EEE1]/10 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-xs' 
+                    : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                 }`}
               >
                 {item.icon}
@@ -170,10 +168,10 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
           })}
         </nav>
 
-        <div className="p-4 border-t border-[#F3EEE1]/10">
+        <div className="p-4 border-t border-slate-800">
           <button 
             onClick={handleLogout}
-            className="flex items-center gap-3 w-full px-3.5 py-2.5 text-xs font-body font-bold text-[#8C4A2F] hover:bg-[#8C4A2F]/20 rounded-xl transition-colors cursor-pointer"
+            className="flex items-center gap-3 w-full px-3.5 py-2.5 text-xs font-body font-bold text-rose-400 hover:bg-rose-500/10 rounded-xl transition-colors cursor-pointer"
           >
             <LogOut size={18} />
             <span className="uppercase tracking-wider">
@@ -184,14 +182,14 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
       </aside>
 
       {/* Desktop Sidebar (>= md) */}
-      <aside className="hidden md:flex w-64 bg-[#1C2A1E] text-[#F3EEE1] flex-col border-r border-[#1C2A1E] shrink-0">
-        <div className="p-5 border-b border-[#F3EEE1]/10 flex items-center gap-3">
-          <img src={logo} alt="Logo" className="w-8 h-8 rounded-full border border-[#B8862E]" />
+      <aside className="hidden md:flex w-64 bg-slate-900 text-slate-100 flex-col border-r border-slate-800 shrink-0">
+        <div className="p-5 border-b border-slate-800 flex items-center gap-3">
+          <img src={logo} alt="Logo" className="w-8 h-8 rounded-full border border-emerald-400" />
           <div>
-            <h2 className="font-display text-lg font-bold tracking-tight text-[#F3EEE1]">
+            <h2 className="font-display text-lg font-bold tracking-tight text-white">
               {isMr ? 'सोनारसिद्धी' : 'SONARSIDDHI'}
             </h2>
-            <span className="text-[10px] font-body font-bold uppercase tracking-widest text-[#B8862E] block -mt-0.5">
+            <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-amber-400 block -mt-0.5">
               {isMr ? 'बॅक-ऑफिस कंसोल' : 'Back-Office Console'}
             </span>
           </div>
@@ -207,8 +205,8 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
                 to={item.path}
                 className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-body font-semibold transition-all ${
                   isActive 
-                    ? 'bg-[#2C3E63] text-white font-bold shadow-sm' 
-                    : 'text-[#F3EEE1]/80 hover:bg-[#F3EEE1]/10 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-xs' 
+                    : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                 }`}
               >
                 {item.icon}
@@ -218,10 +216,10 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
           })}
         </nav>
 
-        <div className="p-4 border-t border-[#F3EEE1]/10">
+        <div className="p-4 border-t border-slate-800">
           <button 
             onClick={handleLogout}
-            className="flex items-center gap-3 w-full px-3.5 py-2.5 text-xs font-body font-bold text-[#8C4A2F] hover:bg-[#8C4A2F]/20 rounded-xl transition-colors cursor-pointer"
+            className="flex items-center gap-3 w-full px-3.5 py-2.5 text-xs font-body font-bold text-rose-400 hover:bg-rose-500/10 rounded-xl transition-colors cursor-pointer"
           >
             <LogOut size={18} />
             <span className="uppercase tracking-wider">
@@ -233,8 +231,8 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
 
       {/* Main Content Viewport */}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
-        <header className="hidden md:flex bg-white border-b border-hairline px-8 py-4 items-center justify-between">
-          <h1 className="font-display text-xl font-bold text-[#1C2A1E]">
+        <header className="hidden md:flex bg-white border-b border-slate-200 px-8 py-4 items-center justify-between shadow-xs">
+          <h1 className="font-display text-xl font-bold text-slate-900">
             {isMr ? 'बॅक-ऑफिस व्यापार कामकाज प्रणाली' : 'Back-Office Trade Operations'}
           </h1>
           
@@ -242,20 +240,20 @@ const AdminLayout = ({ language = 'mr', setLanguage }) => {
             {/* Desktop Language Switcher Pill */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFFFFF] hover:bg-[#B8862E] hover:text-white border border-[#B8862E]/40 rounded-full text-xs font-mono transition-all text-[#1C2A1E] cursor-pointer shadow-xs"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-700 hover:text-white border border-slate-200 rounded-full text-xs font-mono transition-all text-slate-800 cursor-pointer shadow-xs"
             >
-              <Globe size={14} className="text-[#B8862E]" />
+              <Globe size={14} className="text-emerald-600" />
               <span className="font-bold">{isMr ? 'मराठी' : 'ENGLISH'}</span>
             </button>
 
-            <div className="font-body text-xs font-bold text-[#2C3E63] bg-[#2C3E63]/10 px-3 py-1 rounded-lg flex items-center gap-1.5">
-              <ShieldCheck size={14} className="text-[#B8862E]" />
+            <div className="font-body text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-xs">
+              <ShieldCheck size={14} className="text-emerald-600" />
               <span>{isMr ? 'ऑपरेटर: प्रमाणित' : 'OPERATOR: AUTHENTICATED'}</span>
             </div>
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 bg-[#FFFFFF] bg-farm-pattern">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 bg-slate-50">
           <Outlet context={{ language, setLanguage }} />
         </main>
       </div>

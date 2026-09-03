@@ -5,54 +5,51 @@ const FarmerHero = ({ language }) => {
   const isMr = language === 'mr';
 
   return (
-    <div className="relative w-full min-h-[500px] md:min-h-[70vh] flex items-center bg-[#FFFFFF] border-b border-[#1C2A1E]/15 overflow-hidden">
+    <div className="relative w-full min-h-[500px] md:min-h-[65vh] flex items-center bg-white border-b border-slate-200 overflow-hidden">
       {/* Right Side Image */}
       <div className="absolute top-0 right-0 w-full md:w-[65%] h-full z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/75 to-transparent z-10 hidden md:block"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-[#FFFFFF]/75 to-transparent z-10 md:hidden"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10 hidden md:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent z-10 md:hidden"></div>
         <img 
           src={shevgaImage} 
           alt="Shevga Produce Lot" 
-          className="w-full h-full object-cover object-center contrast-110"
+          className="w-full h-full object-cover object-center"
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-12 flex flex-col justify-center py-10 md:py-16">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col justify-center py-10 md:py-16">
         <div className="w-full md:w-[58%] lg:w-1/2">
           
-          <div className="inline-flex items-center gap-2 bg-[#2F5233] text-[#F3EEE1] px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-[#B8862E]/50 shadow-md">
+          <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-emerald-300 shadow-xs">
             <span>🌱 {isMr ? 'शेवगा लागवड क्रांती' : 'SHEVGA FARMING MODEL'}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1C2A1E] leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 leading-tight mb-5">
             {isMr ? (
-              <>शेवगा लागवडीची<br/><span className="text-[#B8862E]">आधुनिक व प्रगत पद्धत.</span></>
+              <>शेवगा लागवडीची<br/><span className="text-emerald-700">आधुनिक व प्रगत पद्धत.</span></>
             ) : (
-              <>Modern Drumstick<br/><span className="text-[#B8862E]">Cultivation Model.</span></>
+              <>Modern Drumstick<br/><span className="text-emerald-700">Cultivation Model.</span></>
             )}
           </h1>
 
-          <div className="bg-white/90 backdrop-blur-md border-2 border-[#B8862E]/30 p-5 rounded-3xl shadow-xl space-y-3 font-body text-sm text-[#1C2A1E]">
-            <p className="font-bold text-[#2F5233] text-base border-b border-hairline pb-2">
-              {isMr ? 'शेवगा (बियाणे) मुख्य वैशिष्ट्ये' : 'OIDC Seed Specifications'}
+          <div className="bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-2xl shadow-md space-y-3 font-body text-sm text-slate-800">
+            <p className="font-bold text-emerald-700 text-base border-b border-slate-100 pb-2 flex items-center justify-between">
+              <span>{isMr ? 'शेवगा (बियाणे) मुख्य वैशिष्ट्ये' : 'OIDC Seed Specifications'}</span>
+              <span className="text-xs font-mono bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">OIDC-3</span>
             </p>
-            <ul className="space-y-2 font-medium">
-              <li className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
-                <span>{isMr ? 'सुधारित OIDC उच्च प्रतीचे बियाणे पुरवठा' : 'High-yield certified OIDC drumstick seed supply'}</span>
+            <ul className="space-y-2 font-medium text-xs sm:text-sm text-slate-700">
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-600 font-bold">✓</span>
+                <span>{isMr ? 'कमी पाण्यात, सर्व प्रकारच्या जमिनीत भरघोस उत्पादन.' : 'High yield in all soil types with minimum water requirement.'}</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
-                <span>{isMr ? 'वार्षिक किमान ५० किलो प्रति झाड उत्पन्न' : 'Minimum 50 kg yield per tree annually'}</span>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-600 font-bold">✓</span>
+                <span>{isMr ? '६ ते ७ महिन्यांत पहिली तोडणी सुरू.' : 'First harvest starting within 6 to 7 months of planting.'}</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
-                <span>{isMr ? '२ फूट लांब हिरवी व चवदार शेंग' : '2-feet uniform dark green pods'}</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#2F5233] text-[#F3EEE1] flex items-center justify-center text-xs font-bold">✓</span>
-                <span>{isMr ? '७ वर्षांचा थेट हमीभाव खरेदी करार' : '7-Year legal buyback price agreement'}</span>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-600 font-bold">✓</span>
+                <span>{isMr ? 'कंपनीकडून ७ वर्षांचा खरेदी हमीभाव करार.' : '7-Year legal buyback price guarantee from Sonarsiddha.'}</span>
               </li>
             </ul>
           </div>
