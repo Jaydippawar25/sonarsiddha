@@ -57,27 +57,27 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
 function createCrudRouter(collectionName) {
   const router = express.Router();
 
-  // GET all (Active only for public, but Admin needs all. We'll return all and filter on frontend)
   router.get('/', async (req, res) => {
     try {
+      if (!db) return res.status(200).json([]);
       const snapshot = await db.collection(collectionName).orderBy('createdAt', 'desc').get();
       const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       res.status(200).json(items);
     } catch (error) {
-      // Fallback if index is missing for orderBy
       try {
+        if (!db) return res.status(200).json([]);
         const snapshot = await db.collection(collectionName).get();
         const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         res.status(200).json(items);
       } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(200).json([]);
       }
     }
   });
 
-  // GET single
   router.get('/:id', async (req, res) => {
     try {
+      if (!db) return res.status(404).json({ error: "Database offline" });
       const doc = await db.collection(collectionName).doc(req.params.id).get();
       if (!doc.exists) return res.status(404).json({ error: "Not found" });
       res.status(200).json({ id: doc.id, ...doc.data() });
@@ -86,9 +86,9 @@ function createCrudRouter(collectionName) {
     }
   });
 
-  // POST (Create)
   router.post('/', async (req, res) => {
     try {
+      if (!db) return res.status(503).json({ error: "Database offline" });
       const data = { ...req.body, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() };
       const docRef = await db.collection(collectionName).add(data);
       res.status(201).json({ id: docRef.id, ...data });
@@ -97,11 +97,11 @@ function createCrudRouter(collectionName) {
     }
   });
 
-  // PUT (Update)
   router.put('/:id', async (req, res) => {
     try {
+      if (!db) return res.status(503).json({ error: "Database offline" });
       const data = { ...req.body, updatedAt: new Date().toISOString() };
-      delete data.id; // Don't save id inside payload
+      delete data.id;
       await db.collection(collectionName).doc(req.params.id).update(data);
       res.status(200).json({ id: req.params.id, ...data });
     } catch (error) {
@@ -109,9 +109,9 @@ function createCrudRouter(collectionName) {
     }
   });
 
-  // DELETE
   router.delete('/:id', async (req, res) => {
     try {
+      if (!db) return res.status(503).json({ error: "Database offline" });
       await db.collection(collectionName).doc(req.params.id).delete();
       res.status(200).json({ success: true, id: req.params.id });
     } catch (error) {
@@ -134,71 +134,101 @@ app.use('/api/profit-ledger', createCrudRouter('profit-ledger'));
 // Specialized endpoints for public views
 app.get('/api/navbar', async (req, res) => {
   try {
+    if (!db) return res.json([]);
     const snapshot = await db.collection('navbar').get();
     const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     res.json(items);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Navbar API error:", error.message);
+    res.json([]);
+  }
+});
+
+app.get('/api/dailyRates', async (req, res) => {
+  try {
+    if (!db) return res.json([]);
+    const snapshot = await db.collection('dailyRates').get();
+    const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    res.json(items);
+  } catch (error) {
+    console.error("DailyRates API error:", error.message);
+    res.json([]);
   }
 });
 
 app.get('/api/about', async (req, res) => {
   try {
+    if (!db) return res.json({});
     const doc = await db.collection('about').doc('details').get();
     res.json(doc.exists ? doc.data() : {});
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("About API error:", error.message);
+    res.json({});
   }
 });
 
 app.get('/api/team', async (req, res) => {
   try {
+    if (!db) return res.json([]);
     const snapshot = await db.collection('team').get();
     const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     res.json(items);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Team API error:", error.message);
+    res.json([]);
   }
 });
 
 app.get('/api/youtube', async (req, res) => {
   try {
+    if (!db) return res.json([]);
     const snapshot = await db.collection('youtube').get();
     const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     res.json(items);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Youtube API error:", error.message);
+    res.json([]);
   }
 });
 
 app.get('/api/details', async (req, res) => {
   try {
+    if (!db) return res.json({});
     const doc = await db.collection('farmer').doc('details').get();
     res.json(doc.exists ? doc.data() : {});
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Details API error:", error.message);
+    res.json({});
   }
 });
 
 app.get('/api/requirements', async (req, res) => {
   try {
+    if (!db) return res.json({});
     const doc = await db.collection('farmer').doc('requirements').get();
     res.json(doc.exists ? doc.data() : {});
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Requirements API error:", error.message);
+    res.json({});
   }
 });
 
 app.get('/api/profit', async (req, res) => {
   try {
+    if (!db) return res.json({});
     const doc = await db.collection('farmer').doc('profit').get();
     res.json(doc.exists ? doc.data() : {});
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Profit API error:", error.message);
+    res.json({});
   }
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Sonarsiddha Backend Server running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Sonarsiddha Backend Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

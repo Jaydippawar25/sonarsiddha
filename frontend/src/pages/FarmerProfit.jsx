@@ -9,7 +9,7 @@ const FarmerProfit = ({ language }) => {
 
   useEffect(() => {
     fetch(`${API_BASE}/profit`)
-      .then(res => res.json())
+      .then(res => res.ok ? res.json() : {})
       .then(profitData => {
         setData(profitData);
         setLoading(false);

@@ -22,8 +22,10 @@ const YoutubeVideos = ({ language }) => {
     } catch (error) {
       try {
         const res = await fetch(`${API_BASE}/youtube`);
-        const data = await res.json();
-        setVideos(data);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data)) setVideos(data);
+        }
       } catch (err) {
         console.error('API fetch also failed:', err);
       }

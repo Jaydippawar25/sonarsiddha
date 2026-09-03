@@ -9,7 +9,7 @@ const Gallery = ({ language }) => {
 
   useEffect(() => {
     fetch(`${API_BASE}/team`)
-      .then(res => res.json())
+      .then(res => res.ok ? res.json() : [])
       .then(data => {
         if (Array.isArray(data)) {
           const sortedData = data.sort((a, b) => (a.order || 0) - (b.order || 0));

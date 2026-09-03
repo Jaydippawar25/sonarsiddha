@@ -8,7 +8,7 @@ const FarmerRequirements = ({ language }) => {
 
   useEffect(() => {
     fetch(`${API_BASE}/requirements`)
-      .then(res => res.json())
+      .then(res => res.ok ? res.json() : {})
       .then(reqData => {
         setData(reqData);
         setLoading(false);

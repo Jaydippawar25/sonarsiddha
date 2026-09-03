@@ -18,7 +18,7 @@ const Navbar = ({ language, setLanguage }) => {
 
   useEffect(() => {
     fetch(`${API_BASE}/navbar`)
-      .then(res => res.json())
+      .then(res => res.ok ? res.json() : [])
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
           data.sort((a, b) => a.id - b.id);

@@ -11,7 +11,7 @@ const About = ({ language }) => {
 
   useEffect(() => {
     fetch(`${API_BASE}/about`)
-      .then(res => res.json())
+      .then(res => res.ok ? res.json() : {})
       .then(aboutData => {
         setData(aboutData);
         setLoading(false);
