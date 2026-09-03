@@ -15,8 +15,8 @@ const Footer = ({ language }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           
-          {/* Column 1: Brand & Mission (4 Cols) */}
-          <div className="lg:col-span-4 space-y-4 text-left">
+          {/* Column 1: Brand & Mission (5 Cols) */}
+          <div className="lg:col-span-5 space-y-4 text-left">
             <div className="flex items-center gap-3">
               <img src={logo} alt="Sonarsiddhi Logo" className="w-10 h-10 rounded-full border-2 border-[#B8862E] object-cover" />
               <div>
@@ -80,22 +80,8 @@ const Footer = ({ language }) => {
             </ul>
           </div>
 
-          {/* Column 3: Mandi Outlets & Hubs (2 Cols) */}
-          <div className="lg:col-span-2 space-y-3 text-left">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-[#B8862E] font-bold border-b border-[#F3EEE1]/15 pb-2">
-              {isMr ? 'खरेदी केंद्रे' : 'Mandi Hubs'}
-            </h4>
-            <ul className="space-y-1.5 font-mono text-xs text-[#F3EEE1]/70">
-              <li>• Solapur Central Mandi</li>
-              <li>• Sangli Terminal</li>
-              <li>• Nashik Hub</li>
-              <li>• Pune Cargo Logistics</li>
-              <li>• Dubai Export Terminal</li>
-            </ul>
-          </div>
-
-          {/* Column 4: Contact Info (3 Cols) */}
-          <div className="lg:col-span-3 space-y-3 text-left">
+          {/* Column 3: Contact Info (4 Cols) */}
+          <div className="lg:col-span-4 space-y-3 text-left">
             <h4 className="font-mono text-xs uppercase tracking-widest text-[#B8862E] font-bold border-b border-[#F3EEE1]/15 pb-2">
               {isMr ? 'संपर्क व पत्ता' : 'Contact & Office'}
             </h4>
