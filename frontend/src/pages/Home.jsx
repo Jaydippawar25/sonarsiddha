@@ -41,42 +41,42 @@ const Home = ({ language }) => {
         />
       </div> 
 
-      {/* Modern Agri-Tech Stat Strip (4 Clean Cards) */}
-      <section className="bg-white border-b border-slate-200 py-6 sm:py-8 relative overflow-hidden">
+      {/* Modern Agri-Tech Stat Strip (4 Clean Cards with Rich Emerald Tint BG) */}
+      <section className="bg-emerald-50/70 border-y border-emerald-100/80 py-8 sm:py-10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
             <ScrollReveal delay={0}>
-              <div className="bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/40 p-4 sm:p-5 rounded-2xl transition-all shadow-xs flex flex-col justify-center h-full group">
+              <div className="bg-white hover:bg-emerald-50/80 border border-emerald-200/80 p-4 sm:p-5 rounded-2xl transition-all shadow-xs hover:shadow-md flex flex-col justify-center h-full group">
                 <span className="block font-display text-2xl sm:text-4xl font-extrabold text-emerald-700 tabular-nums leading-none mb-1 group-hover:scale-105 transition-transform">2,500+</span>
-                <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold block leading-tight">
+                <span className="text-xs uppercase tracking-wider text-slate-700 font-bold block leading-tight">
                   {isMr ? 'नोंदणीकृत शेतकरी' : 'Registered Farmers'}
                 </span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <div className="bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/40 p-4 sm:p-5 rounded-2xl transition-all shadow-xs flex flex-col justify-center h-full group">
+              <div className="bg-white hover:bg-emerald-50/80 border border-emerald-200/80 p-4 sm:p-5 rounded-2xl transition-all shadow-xs hover:shadow-md flex flex-col justify-center h-full group">
                 <span className="block font-display text-2xl sm:text-4xl font-extrabold text-emerald-700 tabular-nums leading-none mb-1 group-hover:scale-105 transition-transform">14</span>
-                <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold block leading-tight">
+                <span className="text-xs uppercase tracking-wider text-slate-700 font-bold block leading-tight">
                   {isMr ? 'प्रादेशिक खरेदी केंद्रे' : 'Mandi Outlets'}
                 </span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <div className="bg-slate-50 hover:bg-emerald-50/50 border border-slate-200 hover:border-emerald-500/40 p-4 sm:p-5 rounded-2xl transition-all shadow-xs flex flex-col justify-center h-full group">
+              <div className="bg-white hover:bg-emerald-50/80 border border-emerald-200/80 p-4 sm:p-5 rounded-2xl transition-all shadow-xs hover:shadow-md flex flex-col justify-center h-full group">
                 <span className="block font-display text-2xl sm:text-4xl font-extrabold text-emerald-700 tabular-nums leading-none mb-1 group-hover:scale-105 transition-transform">120+</span>
-                <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold block leading-tight">
+                <span className="text-xs uppercase tracking-wider text-slate-700 font-bold block leading-tight">
                   {isMr ? 'वार्षिक कार्गो कंटेनर्स' : 'Cargo Export Containers'}
                 </span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <div className="bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-500/40 p-4 sm:p-5 rounded-2xl transition-all shadow-xs flex flex-col justify-center h-full group">
+              <div className="bg-white hover:bg-amber-50/80 border border-amber-300/80 p-4 sm:p-5 rounded-2xl transition-all shadow-xs hover:shadow-md flex flex-col justify-center h-full group">
                 <span className="block font-display text-2xl sm:text-4xl font-extrabold text-amber-600 tabular-nums leading-none mb-1 group-hover:scale-105 transition-transform">100%</span>
-                <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold block leading-tight">
+                <span className="text-xs uppercase tracking-wider text-slate-700 font-bold block leading-tight">
                   {isMr ? 'वेळेवर खाते भरणा' : 'Prompt Ledger Payout'}
                 </span>
               </div>
@@ -87,11 +87,11 @@ const Home = ({ language }) => {
       </section>
 
       {/* Data-Forward Dedicated Live Mandi Rates Dashboard Widget */}
-      <section className="py-8 sm:py-12 bg-slate-100/70 border-b border-slate-200">
+      <section className="py-10 sm:py-14 bg-slate-100 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <ScrollReveal>
-            <div className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+            <div className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-8 shadow-md">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-3">
                   <span className="w-3 h-3 rounded-full bg-emerald-600 animate-ping"></span>
@@ -126,7 +126,7 @@ const Home = ({ language }) => {
                   {(filteredRates.length > 0 ? filteredRates : rates).map(r => (
                     <div 
                       key={r.id} 
-                      className="bg-slate-50 hover:bg-emerald-50/40 border border-slate-200 hover:border-emerald-400 p-4 rounded-2xl transition-all shadow-xs flex items-center justify-between group"
+                      className="bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-400 p-4 rounded-2xl transition-all shadow-xs flex items-center justify-between group"
                     >
                       <div className="space-y-0.5">
                         <span className="font-display font-bold text-sm sm:text-base text-slate-900 block group-hover:text-emerald-700">
@@ -159,8 +159,8 @@ const Home = ({ language }) => {
         </div>
       </section>
 
-      {/* Executive 4-Pillar Quick Feature Grid */}
-      <section className="py-8 sm:py-12 bg-white border-b border-slate-200">
+      {/* Executive 4-Pillar Quick Feature Grid (Warm Gold/Amber Tint BG) */}
+      <section className="py-10 sm:py-14 bg-amber-50/40 border-b border-amber-100/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <ScrollReveal>
@@ -180,7 +180,7 @@ const Home = ({ language }) => {
             <ScrollReveal delay={0}>
               <Link 
                 to="/farmer" 
-                className="bg-white border border-slate-200 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white border border-slate-200/90 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -206,7 +206,7 @@ const Home = ({ language }) => {
             <ScrollReveal delay={100}>
               <Link 
                 to="/farmer-details" 
-                className="bg-white border border-slate-200 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white border border-slate-200/90 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -232,7 +232,7 @@ const Home = ({ language }) => {
             <ScrollReveal delay={200}>
               <Link 
                 to="/about" 
-                className="bg-white border border-slate-200 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white border border-slate-200/90 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -258,7 +258,7 @@ const Home = ({ language }) => {
             <ScrollReveal delay={300}>
               <Link 
                 to="/gallery" 
-                className="bg-white border border-slate-200 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white border border-slate-200/90 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
