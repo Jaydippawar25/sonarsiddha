@@ -98,22 +98,22 @@ const Home = ({ language }) => {
       </section>
 
       {/* Data-Forward Dedicated Live Mandi Rates Dashboard Widget (Fresh Light Mint BG) */}
-      <section className="py-10 sm:py-14 bg-[#F0FDF4] border-b border-emerald-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 sm:py-12 bg-[#F0FDF4] border-b border-emerald-200/80">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           
           <ScrollReveal>
-            <div className="bg-white animated-border-box rounded-3xl border border-emerald-200 p-5 sm:p-8 shadow-md">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <span className="w-3 h-3 rounded-full bg-emerald-600 animate-ping"></span>
+            <div className="bg-white animated-border-box rounded-2xl sm:rounded-3xl border border-emerald-200 p-3.5 sm:p-8 shadow-md">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-slate-100">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping"></span>
                   <div>
-                    <h2 className="font-display text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <h2 className="font-display text-lg sm:text-2xl font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2">
                       <span>{isMr ? 'आजचे लाईव्ह बाजारभाव' : 'Live Daily Mandi Rates'}</span>
-                      <span className="text-xs font-mono bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full border border-emerald-300">
+                      <span className="text-[10px] sm:text-xs font-mono bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-300">
                         {isMr ? 'अपडेटेड' : 'LIVE'}
                       </span>
                     </h2>
-                    <p className="text-xs text-slate-500 font-mono mt-0.5">
+                    <p className="text-[11px] sm:text-xs text-slate-500 font-mono mt-0.5">
                       {isMr ? 'थेट सोलापूर, सांगली व नाशिक खरेदी केंद्र भाव' : 'Direct mandi rates updated from regional procurement centers'}
                     </p>
                   </div>
@@ -126,41 +126,41 @@ const Home = ({ language }) => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={isMr ? "पिक किंवा बाजार शोधा..." : "Filter crop or market..."}
-                    className="w-full text-xs font-mono bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="w-full text-xs font-mono bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 sm:py-2 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   />
                 </div>
               </div>
 
-              {/* Rate Cards Grid */}
+              {/* Rate Cards Grid - 2 Column Compact Grid on Mobile */}
               {rates.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                   {(filteredRates.length > 0 ? filteredRates : rates).map(r => (
                     <div 
                       key={r.id} 
-                      className="bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-400 p-4 rounded-2xl transition-all shadow-xs flex items-center justify-between group"
+                      className="bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl transition-all shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-0 group"
                     >
                       <div className="space-y-0.5">
-                        <span className="font-display font-bold text-sm sm:text-base text-slate-900 block group-hover:text-emerald-700">
+                        <span className="font-display font-bold text-xs sm:text-base text-slate-900 block group-hover:text-emerald-700 leading-tight">
                           {isMr ? r.cropName?.mr || r.cropName : r.cropName?.en || r.cropName}
                         </span>
-                        <span className="text-xs font-mono text-slate-500 block">
-                          📍 {r.marketLocation || 'Solapur Central Mandi'}
+                        <span className="text-[10px] sm:text-xs font-mono text-slate-500 block truncate max-w-[130px] sm:max-w-none">
+                          📍 {r.marketLocation || 'Solapur Mandi'}
                         </span>
                       </div>
 
-                      <div className="text-right">
-                        <span className="font-display font-extrabold text-lg sm:text-xl text-emerald-700 tabular-nums block">
-                          ₹{r.ratePerKg || r.rate || '45'}<span className="text-xs text-slate-500 font-normal">/kg</span>
+                      <div className="text-left sm:text-right mt-1 sm:mt-0">
+                        <span className="font-display font-extrabold text-sm sm:text-xl text-emerald-700 tabular-nums block">
+                          ₹{r.ratePerKg || r.rate || '45'}<span className="text-[10px] sm:text-xs text-slate-500 font-normal">/kg</span>
                         </span>
-                        <span className="inline-block text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
-                          ▲ MANDI VERIFIED
+                        <span className="inline-block text-[9px] sm:text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-1.5 sm:px-2 py-0.5 rounded-md">
+                          ▲ VERIFIED
                         </span>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8 text-xs font-mono text-slate-500">
+                <div className="text-center py-6 text-xs font-mono text-slate-500">
                   {isMr ? 'आजचे भाव लोड होत आहेत...' : 'Fetching live mandi rate updates...'}
                 </div>
               )}
@@ -171,42 +171,42 @@ const Home = ({ language }) => {
       </section>
 
       {/* Executive 4-Pillar Quick Feature Grid (Fresh Spring Light Green BG) */}
-      <section className="py-10 sm:py-14 bg-[#ECFDF5] border-b-2 border-emerald-300/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 sm:py-14 bg-[#ECFDF5] border-b-2 border-emerald-300/80">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           
           <ScrollReveal>
-            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900">
+            <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-10">
+              <h2 className="font-display text-xl sm:text-3xl font-bold text-slate-900">
                 {isMr ? 'सोनारसिद्धी प्रमुख सेवा व सुविधा' : 'Core Mandi Services & Buyback Ecosystem'}
               </h2>
-              <p className="text-xs sm:text-sm text-emerald-800 mt-1 font-mono uppercase font-bold">
+              <p className="text-[11px] sm:text-sm text-emerald-800 mt-0.5 sm:mt-1 font-mono uppercase font-bold">
                 {isMr ? 'शेतकऱ्यांना हमीभाव, दर्जा आणि खात्रीशीर व्यापार मिळवून देणारा प्लॅटफॉर्म' : 'Empowering drumstick growers with guaranteed buyback, quality seeds & global logistics'}
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             
             {/* Feature Card 1 */}
             <ScrollReveal delay={0}>
               <Link 
                 to="/farmer" 
-                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-2.5 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-2 leading-tight">
+                  <h3 className="font-display text-xs sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-1 leading-tight">
                     {isMr ? 'शेतकरी नोंदणी व खरेदी' : 'Farmer Buyback Contract'}
                   </h3>
-                  <p className="font-body text-xs text-slate-600 leading-relaxed">
+                  <p className="font-body text-[10px] sm:text-xs text-slate-600 leading-normal">
                     {isMr ? '७ वर्षांचा कायदेशीर हमीभाव खरेदी करार.' : '7-Year legal buyback contract with technical field visits.'}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-mono font-bold text-emerald-700">
+                <div className="mt-2.5 sm:mt-4 flex items-center gap-1 text-[10px] sm:text-xs font-mono font-bold text-emerald-700">
                   <span>{isMr ? 'नोंदणी करा' : 'Register Now'}</span>
                   <span className="group-hover:translate-x-1.5 transition-transform">→</span>
                 </div>
@@ -217,22 +217,22 @@ const Home = ({ language }) => {
             <ScrollReveal delay={100}>
               <Link 
                 to="/farmer-details" 
-                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-2.5 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-2 leading-tight">
+                  <h3 className="font-display text-xs sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-1 leading-tight">
                     {isMr ? '१ एकर नफा गणित' : '1 Acre Profit Ledger'}
                   </h3>
-                  <p className="font-body text-xs text-slate-600 leading-relaxed">
+                  <p className="font-body text-[10px] sm:text-xs text-slate-600 leading-normal">
                     {isMr ? 'वार्षिक ४.५ लाखांचा निव्वळ नफा.' : '₹4.5 Lakhs net profit with 100% digital weighing.'}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-mono font-bold text-amber-700">
+                <div className="mt-2.5 sm:mt-4 flex items-center gap-1 text-[10px] sm:text-xs font-mono font-bold text-amber-700">
                   <span>{isMr ? 'गणित पहा' : 'View Ledger'}</span>
                   <span className="group-hover:translate-x-1.5 transition-transform">→</span>
                 </div>
@@ -243,22 +243,22 @@ const Home = ({ language }) => {
             <ScrollReveal delay={200}>
               <Link 
                 to="/about" 
-                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-2.5 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-2 leading-tight">
+                  <h3 className="font-display text-xs sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-1 leading-tight">
                     {isMr ? 'सुधारित OIDC बियाणे' : 'High-Yield OIDC Seeds'}
                   </h3>
-                  <p className="font-body text-xs text-slate-600 leading-relaxed">
+                  <p className="font-body text-[10px] sm:text-xs text-slate-600 leading-normal">
                     {isMr ? 'वर्षभर भरघोस उत्पादन देणारी सुधारित वाण.' : 'Year-round high yield drumstick variety for all soil types.'}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-mono font-bold text-emerald-700">
+                <div className="mt-2.5 sm:mt-4 flex items-center gap-1 text-[10px] sm:text-xs font-mono font-bold text-emerald-700">
                   <span>{isMr ? 'माहिती घ्या' : 'Learn More'}</span>
                   <span className="group-hover:translate-x-1.5 transition-transform">→</span>
                 </div>
@@ -269,22 +269,22 @@ const Home = ({ language }) => {
             <ScrollReveal delay={300}>
               <Link 
                 to="/gallery" 
-                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white text-slate-900 animated-border-box border border-emerald-300/80 hover:border-emerald-500 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-2.5 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2zm9-13.5V9" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-2 leading-tight">
+                  <h3 className="font-display text-xs sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 mb-1 leading-tight">
                     {isMr ? 'थेट निर्यात कार्गो' : 'Direct Global Export'}
                   </h3>
-                  <p className="font-body text-xs text-slate-600 leading-relaxed">
+                  <p className="font-body text-[10px] sm:text-xs text-slate-600 leading-normal">
                     {isMr ? 'दुबाई व आंतरराष्ट्रीय विमान कार्गो.' : 'Direct air & sea cargo supply to Dubai mandis.'}
                   </p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-mono font-bold text-emerald-700">
+                <div className="mt-2.5 sm:mt-4 flex items-center gap-1 text-[10px] sm:text-xs font-mono font-bold text-emerald-700">
                   <span>{isMr ? 'गॅलरी पहा' : 'View Archive'}</span>
                   <span className="group-hover:translate-x-1.5 transition-transform">→</span>
                 </div>
