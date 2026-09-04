@@ -131,36 +131,36 @@ const Home = ({ language }) => {
                 </div>
               </div>
 
-              {/* Rate Cards Grid - 2 Column Compact Grid on Mobile */}
+              {/* Rate Cards Grid - Small Compact Containers (2 Cols Mobile / 3 Cols Desktop) */}
               {rates.length > 0 ? (
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                   {(filteredRates.length > 0 ? filteredRates : rates).map(r => (
                     <div 
                       key={r.id} 
-                      className="bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-400 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl transition-all shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-0 group"
+                      className="bg-slate-50 hover:bg-emerald-50/80 border border-slate-200/90 hover:border-emerald-400 p-2 sm:p-3 rounded-xl transition-all shadow-xs flex flex-col justify-between group"
                     >
-                      <div className="space-y-0.5">
-                        <span className="font-display font-bold text-xs sm:text-base text-slate-900 block group-hover:text-emerald-700 leading-tight">
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="font-display font-bold text-xs sm:text-sm text-slate-900 group-hover:text-emerald-700 truncate">
                           {isMr ? r.cropName?.mr || r.cropName : r.cropName?.en || r.cropName}
                         </span>
-                        <span className="text-[10px] sm:text-xs font-mono text-slate-500 block truncate max-w-[130px] sm:max-w-none">
-                          📍 {r.marketLocation || 'Solapur Mandi'}
+                        <span className="text-[9px] font-mono font-bold text-emerald-800 bg-emerald-100/90 px-1.5 py-0.5 rounded shrink-0">
+                          VERIFIED
                         </span>
                       </div>
 
-                      <div className="text-left sm:text-right mt-1 sm:mt-0">
-                        <span className="font-display font-extrabold text-sm sm:text-xl text-emerald-700 tabular-nums block">
-                          ₹{r.ratePerKg || r.rate || '45'}<span className="text-[10px] sm:text-xs text-slate-500 font-normal">/kg</span>
+                      <div className="flex items-baseline justify-between gap-1 mt-0.5">
+                        <span className="text-[10px] sm:text-xs font-mono text-slate-500 truncate max-w-[85px] sm:max-w-none">
+                          📍 {r.marketLocation || 'Solapur Mandi'}
                         </span>
-                        <span className="inline-block text-[9px] sm:text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-1.5 sm:px-2 py-0.5 rounded-md">
-                          ▲ VERIFIED
+                        <span className="font-display font-extrabold text-xs sm:text-base text-emerald-700 tabular-nums shrink-0">
+                          ₹{r.ratePerKg || r.rate || '45'}<span className="text-[9px] text-slate-500 font-normal">/kg</span>
                         </span>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-6 text-xs font-mono text-slate-500">
+                <div className="text-center py-5 text-xs font-mono text-slate-500">
                   {isMr ? 'आजचे भाव लोड होत आहेत...' : 'Fetching live mandi rate updates...'}
                 </div>
               )}
