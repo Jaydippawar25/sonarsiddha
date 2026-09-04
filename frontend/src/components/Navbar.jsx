@@ -61,7 +61,7 @@ const Navbar = ({ language, setLanguage }) => {
   }, []);
 
   return (
-    <header className="w-full bg-[#1C2A1E] text-white animated-border-bottom sticky top-0 z-50 shadow-md">
+    <header className="w-full bg-white/95 backdrop-blur-md text-slate-900 border-b border-slate-200 animated-border-top sticky top-0 z-50 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
           
@@ -70,13 +70,13 @@ const Navbar = ({ language, setLanguage }) => {
             <img 
               src={logo} 
               alt="Sonarsiddhi Crest" 
-              className="h-9 w-9 sm:h-10 sm:w-10 rounded-full border-2 border-amber-400 object-cover shadow-xs group-hover:scale-105 transition-transform" 
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-full border-2 border-emerald-600/80 object-cover shadow-xs group-hover:scale-105 transition-transform" 
             />
             <div className="flex flex-col">
-              <span className="font-display text-lg sm:text-xl tracking-tight text-white font-bold group-hover:text-amber-400 transition-colors leading-none">
+              <span className="font-display text-lg sm:text-xl tracking-tight text-slate-900 font-bold group-hover:text-emerald-700 transition-colors leading-none">
                 {language === 'mr' ? 'सोनारसिद्धी' : 'SONARSIDDHI'}
               </span>
-              <span className="text-[10px] sm:text-[11px] tracking-wider text-amber-400 uppercase font-mono font-semibold mt-0.5">
+              <span className="text-[10px] sm:text-[11px] tracking-wider text-emerald-700 uppercase font-mono font-semibold mt-0.5">
                 {language === 'mr' ? 'ट्रेडिंग हाऊस आणि मंडी' : 'Trading House & Mandi'}
               </span>
             </div>
@@ -92,8 +92,8 @@ const Navbar = ({ language, setLanguage }) => {
                   to={item.path}
                   className={`text-sm font-semibold transition-all py-1.5 border-b-2 ${
                     isActive 
-                      ? 'border-amber-400 text-amber-400 font-bold' 
-                      : 'border-transparent text-slate-200 hover:text-amber-400 hover:border-amber-400/50'
+                      ? 'border-emerald-600 text-emerald-700 font-bold' 
+                      : 'border-transparent text-slate-600 hover:text-emerald-700 hover:border-emerald-300'
                   }`}
                 >
                   {language === 'mr' ? item.nameMr : item.nameEn}
@@ -105,14 +105,14 @@ const Navbar = ({ language, setLanguage }) => {
           {/* Language Toggle & Admin Login Action */}
           <div className="hidden md:flex items-center gap-4">
             {/* Segmented Language Switcher Pill */}
-            <div className="flex items-center p-1 bg-slate-900/90 rounded-full border border-slate-700 text-xs font-semibold shadow-xs">
+            <div className="flex items-center p-1 bg-slate-100 rounded-full border border-slate-200 text-xs font-semibold shadow-xs">
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
                 className={`px-3 py-1 rounded-full transition-all cursor-pointer ${
                   language === 'mr' 
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-xs' 
-                    : 'text-slate-300 hover:text-white'
+                    ? 'bg-emerald-700 text-white font-bold shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 मराठी
@@ -122,8 +122,8 @@ const Navbar = ({ language, setLanguage }) => {
                 onClick={() => setLanguage('en')}
                 className={`px-3 py-1 rounded-full transition-all cursor-pointer ${
                   language === 'en' 
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-xs' 
-                    : 'text-slate-300 hover:text-white'
+                    ? 'bg-emerald-700 text-white font-bold shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 ENG
@@ -132,7 +132,7 @@ const Navbar = ({ language, setLanguage }) => {
 
             <Link
               to="/admin/login"
-              className="text-xs font-mono font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 px-3.5 py-2 rounded-xl transition-all shadow-xs"
+              className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-700 hover:text-white border border-emerald-200 px-3.5 py-2 rounded-xl transition-all shadow-xs"
             >
               {language === 'mr' ? 'ॲडमिन लॉगिन' : 'Admin Login'}
             </Link>
@@ -140,18 +140,18 @@ const Navbar = ({ language, setLanguage }) => {
 
           {/* Mobile Navigation Controls */}
           <div className="flex md:hidden items-center gap-2">
-            <div className="flex items-center p-0.5 bg-slate-900 rounded-full border border-slate-700 text-[11px] font-semibold">
+            <div className="flex items-center p-0.5 bg-slate-100 rounded-full border border-slate-200 text-[11px] font-semibold">
               <button
                 type="button"
                 onClick={() => setLanguage('mr')}
-                className={`px-2 py-0.5 rounded-full ${language === 'mr' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-300'}`}
+                className={`px-2 py-0.5 rounded-full ${language === 'mr' ? 'bg-emerald-700 text-white font-bold' : 'text-slate-600'}`}
               >
                 MR
               </button>
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`px-2 py-0.5 rounded-full ${language === 'en' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-300'}`}
+                className={`px-2 py-0.5 rounded-full ${language === 'en' ? 'bg-emerald-700 text-white font-bold' : 'text-slate-600'}`}
               >
                 EN
               </button>
@@ -159,7 +159,7 @@ const Navbar = ({ language, setLanguage }) => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-white hover:text-amber-400 focus:outline-none rounded-xl bg-slate-800 border border-slate-700"
+              className="p-2 text-slate-700 hover:text-emerald-700 focus:outline-none rounded-xl bg-slate-100 border border-slate-200"
               aria-label="Toggle menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,12 +177,12 @@ const Navbar = ({ language, setLanguage }) => {
 
       {/* Mobile Touch Drawer */}
       {isOpen && (
-        <div className="md:hidden border-t border-slate-800 bg-[#1C2A1E] px-4 pt-3 pb-6 space-y-2 shadow-lg">
+        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
           {navItems.map(item => (
             <Link
               key={item.id}
               to={item.path}
-              className="block text-base font-semibold text-slate-200 hover:text-amber-400 py-2 border-b border-slate-800"
+              className="block text-base font-semibold text-slate-800 hover:text-emerald-700 py-2 border-b border-slate-100"
               onClick={() => setIsOpen(false)}
             >
               {language === 'mr' ? item.nameMr : item.nameEn}
@@ -190,7 +190,7 @@ const Navbar = ({ language, setLanguage }) => {
           ))}
           <Link
             to="/admin/login"
-            className="block text-xs uppercase tracking-wider text-amber-400 font-mono font-bold pt-3"
+            className="block text-xs uppercase tracking-wider text-emerald-700 font-mono font-bold pt-3"
             onClick={() => setIsOpen(false)}
           >
             {language === 'mr' ? 'ॲडमिन लॉगिन' : 'Admin Login'}
